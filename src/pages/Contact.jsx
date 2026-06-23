@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import { useState } from "react";
 import "../styles/contact.css";
+import { motion } from "framer-motion";
 
 function Contact() {
   const [form, setForm] = useState({

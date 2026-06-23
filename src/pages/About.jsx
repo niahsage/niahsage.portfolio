@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import "../styles/about.css";
+import { motion } from "framer-motion";
 import aboutImage from "../assets/images/about.jpg";
 
 function About() {
@@ -17,9 +17,7 @@ function About() {
       <div className="about-text">
         <h2>About Me</h2>
         <p>
-          I’m a UCF Digital Media student interested in web design, graphic
-          design, branding, and interactive storytelling. I enjoy creating
-          projects that feel polished, creative, and visually intentional.
+        I'm a Digital Media student at UCF with a focus on web design, branding, illustration, and interactive experiences. My work ranges from React applications and UI design to traditional painting, pet portraiture, and visual storytelling.
         </p>
 
         <h3>Skills</h3>
@@ -29,6 +27,7 @@ function About() {
           <li>Branding & Visual Design</li>
           <li>UI / App Design</li>
           <li>Interactive Storytelling</li>
+          <li>Illustration & Traditional Media</li>
         </ul>
 
         <h3>Tools</h3>
