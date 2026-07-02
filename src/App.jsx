@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -9,7 +9,7 @@ import Artwork from "./pages/Artwork";
 
 function App() {
   return (
-    <Router basename="/niah-portfolio-react">
+    <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -4,6 +4,7 @@ import "../styles/home.css";
 
 import twoCatsImg from "../assets/images/two-cats.jpg";
 import astroloveImg from "../assets/images/astrolove.jpg";
+import buddyImg from "../assets/assets/buddy.jpg";
 import stickerImg from "../assets/assets/project10.png";
 import exerciseAppImg from "../assets/images/exercise-app.jpg";
 
@@ -14,6 +15,12 @@ function Home() {
       title: "Astrolove",
       type: "UI Design",
       link: "/projects",
+    },
+    {
+      image: buddyImg,
+      title: "Buddy",
+      type: "Pet Portrait",
+      link: "/artwork",
     },
     {
       image: stickerImg,
@@ -41,14 +48,12 @@ function Home() {
           <p className="eyebrow">Web • Branding • Art & Illustration</p>
           <h1>Hi, I’m Niah.</h1>
           <p className="intro">
-            <p className="intro">
-  I’m a digital media designer focused on web design, branding,
-  interactive storytelling, and visual art. My work combines
-  technology, illustration, and creative problem solving.
-</p>
+            I’m a digital media designer focused on web design, branding,
+            interactive storytelling, and visual art. My work combines
+            technology, illustration, and creative problem solving.
           </p>
 
-         <div className="home-buttons">
+          <div className="home-buttons">
             <Link to="/projects" className="btn">
               View Projects
             </Link>
