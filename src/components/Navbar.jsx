@@ -5,7 +5,7 @@ import logoImg from "../assets/images/niah-sage-logo.jpg";
 function Navbar() {
   return (
     <nav className="navbar">
-      <Link to="/" className="logo">
+      <Link to="/" className="logo" aria-label="Niah Sage home">
         <img src={logoImg} alt="Niah Sage logo" />
       </Link>
 
