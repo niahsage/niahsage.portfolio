@@ -10,30 +10,10 @@ import exerciseAppImg from "../assets/images/exercise-app.jpg";
 
 function Home() {
   const featuredWork = [
-    {
-      image: buddyImg,
-      title: "Buddy",
-      type: "Pet Portrait",
-      link: "/artwork",
-    },
-    {
-      image: astroloveImg,
-      title: "Astrolove",
-      type: "UI Design",
-      link: "/projects",
-    },
-    {
-      image: exerciseAppImg,
-      title: "Exercise App",
-      type: "React Native",
-      link: "/projects",
-    },
-    {
-      image: stickerImg,
-      title: "Sticker Commission",
-      type: "Illustration",
-      link: "/artwork",
-    },
+    { image: buddyImg, title: "Buddy", type: "Pet Portrait", link: "/artwork" },
+    { image: astroloveImg, title: "Astrolove", type: "UI Design", link: "/projects" },
+    { image: exerciseAppImg, title: "Exercise App", type: "React Native", link: "/projects" },
+    { image: stickerImg, title: "Sticker Commission", type: "Illustration", link: "/artwork" },
   ];
 
   return (
@@ -45,32 +25,27 @@ function Home() {
         transition={{ duration: 0.8 }}
       >
         <div className="home-text">
-          <p className="eyebrow">
-            Web Design • Branding • Illustration • Front-End
-          </p>
-
-          <h1>Creating digital spaces that feel warm, human, and memorable.</h1>
+          <p className="eyebrow">Web Design • Branding • Illustration • Front-End</p>
+          <h1>Building warm digital worlds through art, story, and code.</h1>
 
           <p className="intro">
-            I’m Niah McKyton, a digital media designer blending web design,
-            branding, illustration, and front-end development to build
-            story-driven work with personality and purpose.
+            I’m Niah McKyton, a digital media designer creating websites,
+            branding, illustrations, and interactive experiences that feel
+            thoughtful, welcoming, and memorable.
           </p>
 
           <div className="home-buttons">
-            <Link to="/projects" className="btn">
-              View Design Work
-            </Link>
-            <Link to="/artwork" className="btn btn-outline">
-              View Artwork
-            </Link>
+            <Link to="/projects" className="btn">View Design Work</Link>
+            <Link to="/artwork" className="btn btn-outline">View Artwork</Link>
           </div>
         </div>
 
         <div className="home-portrait">
-          <div className="portrait-glass glass-one"></div>
-          <div className="portrait-glass glass-two"></div>
-          <div className="portrait-glass glass-three"></div>
+          <span className="glass-shape shape-one"></span>
+          <span className="glass-shape shape-two"></span>
+          <span className="glass-shape shape-three"></span>
+          <span className="studio-note note-one">designer</span>
+          <span className="studio-note note-two">artist</span>
           <img src={heroImg} alt="Portrait of Niah McKyton" />
         </div>
       </motion.div>
@@ -78,7 +53,7 @@ function Home() {
       <section className="featured-work">
         <div className="featured-header">
           <p className="eyebrow">Selected Work</p>
-          <h2>Recent pieces across art, design, and code.</h2>
+          <h2>A mix of painted pieces, digital products, and illustrated stories.</h2>
         </div>
 
         <div className="featured-grid">
