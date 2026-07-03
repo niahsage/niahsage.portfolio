@@ -25,11 +25,11 @@ function Home() {
         transition={{ duration: 0.8 }}
       >
         <div className="home-text">
-          <p className="eyebrow">Web Design • Branding • Illustration • Front-End</p>
+          <p className="eyebrow">Web Design • Branding • Illustration • Front End</p>
           <h1>Building warm digital worlds through art, story, and code.</h1>
 
           <p className="intro">
-            I’m Niah McKyton, a digital media designer creating websites,
+            I’m Niah Sage Mckyton, a digital media designer creating websites,
             branding, illustrations, and interactive experiences that feel
             thoughtful, welcoming, and memorable.
           </p>
