@@ -11,28 +11,28 @@ import exerciseAppImg from "../assets/images/exercise-app.jpg";
 function Home() {
   const featuredWork = [
     {
-      image: astroloveImg,
-      title: "Astrolove",
-      type: "UI Design",
-      link: "/projects",
-    },
-    {
       image: buddyImg,
       title: "Buddy",
       type: "Pet Portrait",
       link: "/artwork",
     },
     {
-      image: stickerImg,
-      title: "Sticker Commission",
-      type: "Illustration",
-      link: "/artwork",
+      image: astroloveImg,
+      title: "Astrolove",
+      type: "UI Design",
+      link: "/projects",
     },
     {
       image: exerciseAppImg,
       title: "Exercise App",
       type: "React Native",
       link: "/projects",
+    },
+    {
+      image: stickerImg,
+      title: "Sticker Commission",
+      type: "Illustration",
+      link: "/artwork",
     },
   ];
 
@@ -45,17 +45,21 @@ function Home() {
         transition={{ duration: 0.8 }}
       >
         <div className="home-text">
-          <p className="eyebrow">Web • Branding • Art & Illustration</p>
-          <h1>Hi, I’m Niah.</h1>
+          <p className="eyebrow">
+            Web Design • Branding • Illustration • Front-End
+          </p>
+
+          <h1>Designing digital work with warmth, story, and soul.</h1>
+
           <p className="intro">
-            I’m a digital media designer focused on web design, branding,
-            interactive storytelling, and visual art. My work combines
-            technology, illustration, and creative problem solving.
+            I’m Niah McKyton, a digital media designer creating websites,
+            branding, illustrations, and interactive experiences that feel
+            thoughtful, welcoming, and memorable.
           </p>
 
           <div className="home-buttons">
             <Link to="/projects" className="btn">
-              View Projects
+              View Design Work
             </Link>
             <Link to="/artwork" className="btn btn-outline">
               View Artwork
@@ -70,8 +74,8 @@ function Home() {
 
       <section className="featured-work">
         <div className="featured-header">
-          <p className="eyebrow">Featured Work</p>
-          <h2>Recent & Relevant</h2>
+          <p className="eyebrow">Selected Work</p>
+          <h2>Recent pieces across design, code, and art.</h2>
         </div>
 
         <div className="featured-grid">

@@ -20,9 +20,10 @@
 }
 
 .home-text h1 {
-  font-size: clamp(3.5rem, 8vw, 6.8rem);
+  font-size: clamp(3.2rem, 7vw, 5.8rem);
   line-height: 0.95;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
+  max-width: 780px;
 }
 
 .intro {
