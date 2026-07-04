@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/home.css";
-
+import greeceImg from "../assets/images/greece.jpg";
 import heroImg from "../assets/images/about.jpg";
 import astroloveImg from "../assets/images/astrolove.jpg";
 import exerciseAppImg from "../assets/images/exercise-app.jpg";
@@ -11,51 +11,61 @@ import lightImg from "../assets/images/light.jpg";
 
 function Home() {
   const selectedWork = [
-    {
-      image: astroloveImg,
-      title: "AstroLove",
-      category: "UI Design",
-      description: "A cosmic dating app concept focused on connection, compatibility, and intuitive user experience.",
-      link: "/projects",
-      button: "View Case Study",
-      className: "work-item work-astro",
-    },
-    {
-      image: exerciseAppImg,
-      title: "Move Better, Every Day",
-      category: "React Native App",
-      description: "A fitness tracking app designed to make workouts simple, motivating, and personalized.",
-      link: "/projects",
-      button: "View Project",
-      className: "work-item work-exercise",
-    },
-    {
-      image: buddyImg,
-      title: "Pet Portrait Collection",
-      category: "Traditional & Digital Art",
-      description: "Custom paintings that celebrate the bond between pets and the people who love them.",
-      link: "/artwork",
-      button: "View Gallery",
-      className: "work-item work-buddy",
-    },
-    {
-      image: stickerImg,
-      title: "Sticker Designs",
-      category: "Illustration",
-      description: "Illustrated stickers inspired by nature, spirituality, and dreamy places.",
-      link: "/artwork",
-      button: "View Project",
-      className: "work-item work-sticker",
-    },
-    {
-      image: lightImg,
-      title: "LIGHT",
-      category: "Interactive Story",
-      description: "An interactive story about choices, consequences, and finding your way.",
-      link: "/projects",
-      button: "Play the Story",
-      className: "work-item work-light",
-    },
+  {
+    image: astroloveImg,
+    title: "AstroLove",
+    category: "UI Design",
+    description:
+      "A cosmic dating app concept focused on connection, compatibility, and intuitive user experience.",
+    link: "https://niahsage.github.io/astrolove/",
+    button: "View Case Study",
+    external: true,
+    className: "work-item work-astro",
+  },
+  {
+    image: exerciseAppImg,
+    title: "Move Better, Every Day",
+    category: "React Native App",
+    description:
+      "A fitness tracking app designed to make workouts simple, motivating, and personalized.",
+    link: "https://niahsage.github.io/react-native-exercise-app/",
+    button: "View Project",
+    external: true,
+    className: "work-item work-exercise",
+  },
+  {
+    image: buddyImg,
+    title: "Pet Portrait Collection",
+    category: "Traditional & Digital Art",
+    description:
+      "Custom paintings that celebrate the bond between pets and the people who love them.",
+    link: "/artwork",
+    button: "View Gallery",
+    external: false,
+    className: "work-item work-buddy",
+  },
+  {
+    image: stickerImg,
+    title: "Sticker Designs",
+    category: "Illustration",
+    description:
+      "Illustrated stickers inspired by nature, spirituality, and dreamy places.",
+    link: "/artwork",
+    button: "View Artwork",
+    external: false,
+    className: "work-item work-sticker",
+  },
+  {
+    image: lightImg,
+    title: "LIGHT",
+    category: "Interactive Story",
+    description:
+      "An interactive story about choices, consequences, and finding your way.",
+    link: "https://niahsage.itch.io/light",
+    button: "Play Story",
+    external: true,
+    className: "work-item work-light",
+  },
   ];
 
   return (
@@ -101,7 +111,7 @@ function Home() {
       <section className="selected-work">
         <div className="section-heading">
           <p className="eyebrow">Selected Work</p>
-       <h2>
+    
         <h2>
   Projects built with
   <br />
@@ -109,27 +119,52 @@ function Home() {
   <br />
   and care.
 </h2>
-          </h2>
+        
         </div>
 
         <div className="flow-line"></div>
 
-        <div className="work-flow">
-          {selectedWork.map((item) => (
-            <Link to={item.link} className={item.className} key={item.title}>
-              <div className="work-image">
-                <img src={item.image} alt={item.title} />
-              </div>
-
-              <div className="work-copy">
-                <h3>{item.title}</h3>
-                <p className="work-category">{item.category}</p>
-                <p>{item.description}</p>
-                <span>{item.button} →</span>
-              </div>
-            </Link>
-          ))}
+<div className="work-flow">
+  {selectedWork.map((item) =>
+    item.external ? (
+      <a
+        key={item.title}
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={item.className}
+      >
+        <div className="work-image">
+          <img src={item.image} alt={item.title} />
         </div>
+
+        <div className="work-copy">
+          <h3>{item.title}</h3>
+          <p className="work-category">{item.category}</p>
+          <p>{item.description}</p>
+          <span>{item.button} →</span>
+        </div>
+      </a>
+    ) : (
+      <Link
+        key={item.title}
+        to={item.link}
+        className={item.className}
+      >
+        <div className="work-image">
+          <img src={item.image} alt={item.title} />
+        </div>
+
+        <div className="work-copy">
+          <h3>{item.title}</h3>
+          <p className="work-category">{item.category}</p>
+          <p>{item.description}</p>
+          <span>{item.button} →</span>
+        </div>
+      </Link>
+    )
+  )}
+</div>
       </section>
 
       <section className="what-i-do">
@@ -156,45 +191,51 @@ function Home() {
         </div>
       </section>
 
-      <section className="about-preview">
-        <div>
-          <p className="eyebrow">A Little About Me</p>
+<section className="about-preview">
+  <div className="about-copy">
+    <p className="eyebrow">A Little About Me</p>
+    <h2>
+      Designer,
+      <br />
+      developer,
+      <br />
+      and artist.
+    </h2>
 
+    <p>
+      I'm a digital media designer with a background in art and a passion for
+      creating experiences that feel thoughtful and personal. I enjoy combining
+      design, illustration, and front end development to build work that's both
+      beautiful and functional.
+    </p>
 
-<h2>
-Designer,
-<br />
-developer,
-<br />
-and artist.
-</h2>
+    <p>
+      Outside of work, you'll usually find me painting, exploring new places,
+      or relaxing with my cat, Buddy.
+    </p>
 
-<p>
-I'm a digital media designer with a background in art and a passion for
-creating experiences that feel thoughtful and personal. I enjoy combining
-design, illustration, and front-end development to build work that's both
-beautiful and functional.
-</p>
+    <Link to="/about" className="text-link about-button">
+      Get to Know Me →
+    </Link>
+  </div>
 
-<p>
-Outside of work, you'll usually find me painting, exploring new places,
-or relaxing with my cat, Buddy.
-</p>
-        
-          <Link to="/about" className="text-link">
-            Get to Know Me
-          </Link>
-        </div>
-      </section>
+  <div className="about-visual">
+    <span className="about-sun">☼</span>
+    <span className="about-sparkle sparkle-one">✦</span>
+    <span className="about-sparkle sparkle-two">✧</span>
 
-      <section className="home-cta">
-        <h2>
-          Let’s create something <em>meaningful</em> together.
-        </h2>
-        <Link to="/contact" className="btn">
-          Let’s Connect
-        </Link>
-      </section>
+    <div className="about-photo-blob">
+      <img src={greeceImg} alt="Niah in Greece" />
+    </div>
+
+    <div className="signature-card">
+      <p>Niah Sage ♡</p>
+      <span>Based in Orlando ☼</span>
+    </div>
+
+    <span className="paint-brush">⌇</span>
+  </div>
+</section>
     </main>
   );
 }
