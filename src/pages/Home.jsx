@@ -74,8 +74,8 @@ function Home() {
           </h1>
 
           <p className="intro">
-            I blend creativity and code to build web experiences that are
-            beautiful, intentional, and human.
+            I blend creativity and code to create thoughtful digital experiences
+  that are beautiful, intuitive, and built with intention.
           </p>
 
           <div className="home-buttons">
@@ -101,9 +101,14 @@ function Home() {
       <section className="selected-work">
         <div className="section-heading">
           <p className="eyebrow">Selected Work</p>
-          <h2>
-            Projects that reflect <em>creativity</em>, purpose, and a{" "}
-            <em>soul.</em>
+       <h2>
+        <h2>
+  Projects built with
+  <br />
+  <em>creativity</em>, intention,
+  <br />
+  and care.
+</h2>
           </h2>
         </div>
 
@@ -154,12 +159,28 @@ function Home() {
       <section className="about-preview">
         <div>
           <p className="eyebrow">A Little About Me</p>
-          <h2>Designer, developer, artist, and storyteller.</h2>
-          <p>
-            I’m a digital media designer with a background in art and a passion
-            for meaningful details. When I’m not designing, you’ll usually find
-            me painting, listening to music, or with my cat, Buddy.
-          </p>
+
+
+<h2>
+Designer,
+<br />
+developer,
+<br />
+and artist.
+</h2>
+
+<p>
+I'm a digital media designer with a background in art and a passion for
+creating experiences that feel thoughtful and personal. I enjoy combining
+design, illustration, and front-end development to build work that's both
+beautiful and functional.
+</p>
+
+<p>
+Outside of work, you'll usually find me painting, exploring new places,
+or relaxing with my cat, Buddy.
+</p>
+        
           <Link to="/about" className="text-link">
             Get to Know Me
           </Link>
