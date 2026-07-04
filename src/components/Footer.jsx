@@ -16,9 +16,8 @@ function Footer() {
           </h2>
 
           <p className="footer-text">
-            Thanks for taking the time to explore my work. I'm always excited to
-            connect with people who appreciate thoughtful design, creative
-            problem solving, and well-crafted digital experiences.
+            Thanks for taking the time to explore my work. 
+            Here are some links to get in touch.
           </p>
         </div>
 
