@@ -2,7 +2,7 @@
   "name": "niah-portfolio-react",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://niahsage.github.io/niah-portfolio-react",
+"homepage": "https://niahsage.com",
   "type": "module",
   "scripts": {
     "dev": "vite",
