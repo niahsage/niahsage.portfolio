@@ -1,5 +1,5 @@
 import ProjectCard from "../components/ProjectCard";
-import "../styles/projects.css";
+import "../styles/artwork.css";
 import { motion } from "framer-motion";
 import twoCatsImg from "../assets/images/two-cats.jpg";
 import blackTabbyImg from "../assets/images/black-tabby.jpg";
@@ -86,24 +86,63 @@ function Artwork() {
     },
   ];
 
-  return (
-    <section className="projects-page">
-      <div className="projects-header">
-        <p className="eyebrow">Art & Illustration</p>
-        <h2>Artwork</h2>
-        <p className="projects-intro">
-          A curated mix of pet portraits, illustration, concept work, and visual
-          experiments. I plan to keep building this section as I add newer pieces.
-        </p>
-      </div>
-
-      <div className="projects-grid">
-        {artworks.map((art, index) => (
-          <ProjectCard key={index} {...art} />
-        ))}
-      </div>
+return (
+  <motion.main
+    className="artwork-page"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.7 }}
+  >
+    <section className="art-hero">
+      <p className="eyebrow">Art & Illustration</p>
+      <h1>
+        Artwork shaped by
+        <br />
+        <em>texture</em>, story,
+        <br />
+        and feeling.
+      </h1>
+      <p>
+        A curated collection of pet portraits, illustration, concept studies,
+        and visual experiments created through traditional and digital media.
+      </p>
     </section>
-  );
+
+    <section className="art-gallery">
+      {artworks.map((art, index) => (
+        <article
+          className={`art-piece art-piece-${index + 1}`}
+          key={art.title}
+        >
+          <div className="art-number">
+            {String(index + 1).padStart(2, "0")}
+          </div>
+
+          <div className="art-image-wrap">
+            <img src={art.image} alt={art.title} />
+          </div>
+
+          <div className="art-copy">
+            <p className="art-type">{art.tools.split(",")[0]}</p>
+            <h2>{art.title}</h2>
+            <p>{art.description}</p>
+            <span>{art.tools}</span>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section className="art-cta">
+      <p className="eyebrow">Creative Work</p>
+      <h2>
+        Paint, pixels,
+        <br />
+        and personal details.
+      </h2>
+      <a href="#/contact">Start a Project →</a>
+    </section>
+  </motion.main>
+);
 }
 
 export default Artwork;
