@@ -1,0 +1,111 @@
+/* ===========================================
+   NIAH'S STUDIO — THE WORK UNFOLDS
+   Homepage-only scroll reveals. No changes to
+   desk, navbar, photo hotspots, reels or links.
+   =========================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* CSS `translate` preserves the handcrafted rotations from existing CSS. */
+  .studio-home .studio-enter {
+    opacity: 0;
+    translate: 0 26px;
+    transition:
+      opacity 650ms ease-out,
+      translate 820ms cubic-bezier(.19, 1, .3, 1);
+    transition-delay: var(--studio-reveal-delay, 0ms);
+  }
+
+  .studio-home .studio-enter.is-in-view {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  /* A tiny stagger, like two notes placed down one after the other. */
+  .studio-home .web-progress-sheet:nth-child(2),
+  .studio-home .mk-reel-card:nth-child(2),
+  .studio-home .mk-proof:nth-child(even),
+  .studio-home .studio-about-copy {
+    --studio-reveal-delay: 100ms;
+  }
+
+  /* On the featured websites, a sage sheet slips aside to uncover the screen. */
+  .studio-home .studio-enter.web-feature .web-browser {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .studio-home .studio-enter.web-feature .web-browser::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: #d8e3d3;
+    transform: scaleX(1);
+    transform-origin: right center;
+    transition: transform 850ms cubic-bezier(.23, 1, .32, 1) 150ms;
+  }
+
+  .studio-home .studio-enter.web-feature.is-in-view .web-browser::after {
+    transform: scaleX(0);
+  }
+}
+
+/* Keep content fully visible for reduced motion, unsupported browsers,
+   keyboard use and print even if JavaScript previously added the classes. */
+@media (prefers-reduced-motion: reduce) {
+  .studio-home .studio-enter {
+    opacity: 1 !important;
+    translate: none !important;
+    transition: none !important;
+  }
+  .studio-home .studio-enter.web-feature .web-browser::after {
+    display: none;
+  }
+}
+@media print {
+  .studio-home .studio-enter {
+    opacity: 1 !important;
+    translate: none !important;
+  }
+  .studio-home .studio-enter.web-feature .web-browser::after {
+    display: none;
+  }
+}
+
+/* Each category has its own physical entrance. `rotate` and `translate` are
+   individual CSS transform properties: old photographed-paper rotations survive. */
+@media (prefers-reduced-motion: no-preference) {
+  .studio-home .studio-enter--laid-down {
+    translate: 0 42px;
+    rotate: -1.2deg;
+    transition-duration: 710ms, 950ms, 950ms;
+    transition-property: opacity, translate, rotate;
+    transition-timing-function: ease-out, cubic-bezier(.16, 1, .28, 1), cubic-bezier(.16, 1, .28, 1);
+  }
+  .studio-home .studio-enter--turned-page {
+    translate: 13px 28px;
+    rotate: 1.1deg;
+    transition-duration: 800ms, 950ms, 950ms;
+    transition-property: opacity, translate, rotate;
+    transition-timing-function: ease-out, cubic-bezier(.16, 1, .28, 1), cubic-bezier(.16, 1, .28, 1);
+  }
+  .studio-home .studio-enter--laid-down.is-in-view,
+  .studio-home .studio-enter--turned-page.is-in-view {
+    opacity: 1;
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  .studio-home .table-reveal-frame { --studio-reveal-delay: 90ms; }
+  .studio-home .niah-flower-album__tools { --studio-reveal-delay: 120ms; }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .studio-home .studio-enter--laid-down,
+  .studio-home .studio-enter--turned-page { rotate: 0deg; translate: 0 17px; }
+  .studio-home .studio-enter--laid-down.is-in-view,
+  .studio-home .studio-enter--turned-page.is-in-view { translate: 0 0; }
+}
+@media (prefers-reduced-motion: reduce), print {
+  .studio-home .studio-enter--laid-down,
+  .studio-home .studio-enter--turned-page { translate: none !important; rotate: none !important; opacity: 1 !important; }
+}

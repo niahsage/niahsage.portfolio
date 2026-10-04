@@ -1,0 +1,117 @@
+/* Interactive scrapbook chapter cards, scoped entirely to About */
+.niah-journey {
+  position: relative;
+  width: min(1200px, 90%);
+  margin: 0 auto 8rem;
+  color: #523d33;
+}
+.niah-journey-heading {display:flex; align-items:flex-start; gap: 1.2rem; margin-bottom: 2.75rem;}
+.niah-journey-spark {font-size:3.1rem; line-height:1; color:#b85c3d;}
+.niah-journey-overline {color:#59745f; letter-spacing:.16em; text-transform:uppercase; font-size:.83rem; font-weight:700; margin:0 0 .55rem;}
+.niah-journey-heading h2 {font-family:"Caveat","Cormorant Garamond",serif; font-size:clamp(3rem,6.5vw,6.1rem); font-weight:700; line-height:1.02; margin:0 0 .55rem;}
+.niah-journey-heading h2 em {color:#af6245; font-weight:500;}
+.niah-journey-heading p:last-child {font-family:"Handlee",sans-serif; max-width:45rem; font-size:clamp(1rem,1.4vw,1.25rem); line-height:1.55;}
+.niah-journey-layout {display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:clamp(1.6rem,4vw,4.5rem); align-items:center;}
+.niah-journey-pocket {
+  --cx: 0px; --cy: 0px;
+  background:linear-gradient(155deg,#ebddca,#e0c9b4);
+  border:1px solid #cdb399;
+  border-radius:11px 7px 16px 9px;
+  min-width:0;
+  position:relative;
+  min-height:505px;
+  padding:20px;
+  box-shadow:3px 12px 0 #c9b49f, 0 20px 40px #64412b24;
+}
+.niah-journey-pocket::after {
+  content:""; pointer-events:none; position:absolute; bottom:0;left:0;right:0;height:30%;
+  background:linear-gradient(0deg,rgba(170,132,100,.17),transparent);
+}
+.niah-journey-pocket-label {position:relative; z-index:1; font-size:.73rem; letter-spacing:.16em; text-align:center; color:#705741;}
+.niah-journey-cards {position:relative; height:420px; isolation:isolate;}
+.niah-journey-card {
+  position:absolute;
+  left:50%; top:50%;
+  width:min(67%,265px);
+  aspect-ratio: .76;
+  border:1px solid #d6c9b9;
+  border-radius:2px;
+  background:var(--paper);
+  padding:12px 12px 35px;
+  color:#473329;
+  cursor:pointer;
+  box-shadow:0 9px 17px #472b2433;
+  display:flex;
+  flex-direction:column;
+  text-align:left;
+  transform:translate(calc(-50% + (var(--card-depth) * 24px) + var(--cx)), calc(-48% + (var(--card-depth) * 14px) + var(--cy))) rotate(calc((var(--card-depth) - 1) * 8deg)) scale(.94);
+  transition:transform .45s cubic-bezier(.2,.75,.2,1),box-shadow .3s;
+}
+.niah-journey-card.is-selected {transform:translate(calc(-50% + var(--cx)),calc(-54% + var(--cy))) rotate(-3deg) scale(1); box-shadow:0 22px 34px #42251f46;}
+.niah-journey-card:not(.is-selected):hover {transform:translate(calc(-50% + (var(--card-depth) * 24px) + var(--cx)),calc(-60% + (var(--card-depth) * 14px) + var(--cy))) rotate(calc((var(--card-depth) - 1) * 8deg)) scale(.96);}
+.niah-journey-card-number {font-size:.73rem;letter-spacing:.11em;color:#675649;padding-bottom:8px;}
+.niah-journey-card-photo {display:block; flex:1; min-height:0; background:#eee8d9;overflow:hidden;box-shadow:inset 0 0 0 1px #82756335;}
+.niah-journey-card-photo img {width:100%;height:100%;object-fit:cover;}
+.niah-journey-card-name {font-family:"Caveat",cursive; font-size:clamp(1.25rem,2vw,1.7rem); font-weight:700; margin-top:7px;white-space:nowrap;}
+.niah-journey-card-tape {position:absolute;top:-13px;left:34%;width:32%;height:25px; background:#f4dfb0bb;transform:rotate(-2deg);box-shadow:0 1px 2px #79563219;pointer-events:none;}
+.niah-journey-doodle {position:absolute;right:12px;bottom:18px;font:700 2.1rem "Caveat",cursive;transform:rotate(-15deg);color:#9a5e49;}
+.niah-journey-doodle small {display:block;font-size:1.3rem;}
+.niah-journey-letter {
+  position:relative;
+  background:#fffaf0;
+  min-height:430px;
+  border:1px solid #e5d6bd;
+  padding:clamp(1.4rem,3.5vw,3rem);
+  box-shadow:12px 13px 0 #e3dbc5,20px 24px 35px #5c43391a;
+  display:flex;flex-direction:column;
+  animation:niah-letter-appear .35s ease both;
+}
+.niah-journey-letter::before {content:"";position:absolute;top:-11px;left:42%;width:75px;height:23px;transform:rotate(-2deg);background:#f0dba3b5;pointer-events:none;}
+.niah-journey-letter-top {display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dashed #baae99;padding-bottom:12px;font-size:.7rem;letter-spacing:.14em;color:#6c6d52;}
+.niah-journey-kicker {margin:2rem 0 .65rem;color:#718370;letter-spacing:.11em;text-transform:uppercase;font-size:.8rem;font-weight:700;}
+.niah-journey-letter h3 {font-family:"Caveat",cursive;font-size:clamp(2.2rem,3.8vw,3.9rem);line-height:1.03;margin:0 0 1rem;font-weight:700;color:#4f392d;}
+.niah-journey-description {font-family:"Handlee",sans-serif;font-size:clamp(1rem,1.35vw,1.17rem);line-height:1.65;margin:0 0 1.25rem;}
+.niah-journey-tags {color:#617560;letter-spacing:.03em;font-size:.85rem;margin:0 0 1.3rem;}
+.niah-journey-link {align-self:flex-start;border-bottom:2px solid #bf6846;font-family:"Handlee",sans-serif;font-size:1.08rem;padding-bottom:.25rem;}
+.niah-journey-link:hover {color:#a54e30;}
+.niah-journey-letter-bottom {margin-top:auto;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;color:#a85b40;}
+.niah-journey-letter-bottom span:first-child {font-size:2rem;}
+.niah-journey-letter-bottom span:last-child {font-family:"Caveat",cursive;font-size:1.8rem;transform:rotate(-5deg);}
+.niah-journey button:focus-visible,.niah-journey a:focus-visible {outline:3px solid #286f60;outline-offset:5px;}
+@keyframes niah-letter-appear {from{opacity:.5;transform:translateY(10px) rotate(1deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+@media(max-width:850px){.niah-journey-layout{grid-template-columns:1fr;}.niah-journey-pocket{min-height:425px;}.niah-journey-cards{height:350px;}.niah-journey-card{max-width:225px;}.niah-journey-letter{min-height:unset;}}
+@media(max-width:500px){.niah-journey{width:92%;margin-bottom:5rem}.niah-journey-heading{gap:.6rem}.niah-journey-spark{font-size:2rem}.niah-journey-pocket{min-height:370px;padding:14px}.niah-journey-cards{height:315px}.niah-journey-card{width:min(62%,200px);padding:9px 9px 30px}.niah-journey-doodle{right:7px;bottom:8px}.niah-journey-letter{padding:1.45rem}}
+@media(prefers-reduced-motion:reduce){.niah-journey-card{transition:none!important}.niah-journey-letter{animation:none!important}}
+
+/* About page: the same tangible top-card-to-bottom action as the photo stacks. */
+.niah-journey-card:not(.is-selected) {
+  pointer-events: none;
+}
+.niah-journey-card.is-selected {
+  touch-action: manipulation;
+}
+.niah-journey-card.is-shuffling {
+  animation: niah-journey-to-back 620ms cubic-bezier(.25,.64,.27,1) both;
+  transition: none;
+  pointer-events: none;
+  opacity: 1;
+}
+@keyframes niah-journey-to-back {
+  0% {
+    transform: translate(calc(-50% + var(--cx)), calc(-54% + var(--cy))) rotate(-3deg) scale(1);
+    z-index: 15;
+  }
+  46% {
+    transform: translate(calc(-50% + clamp(85px, 13vw, 155px) + var(--cx)), calc(-70% + var(--cy))) rotate(14deg) scale(1.02);
+    z-index: 15;
+  }
+  51% { z-index: 1; }
+  100% {
+    transform: translate(calc(-50% + 48px + var(--cx)), calc(-48% + 28px + var(--cy))) rotate(8deg) scale(.94);
+    z-index: 1;
+  }
+}
+.niah-journey-card:disabled { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .niah-journey-card.is-shuffling { animation: none; }
+}

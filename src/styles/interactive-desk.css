@@ -1,0 +1,1781 @@
+
+/* ====================================================
+   NIAH'S CREATIVE DESK
+   Interactive photographic portfolio
+   ==================================================== */
+
+.niah-desk-section {
+  --desk-paper: #fbf6ef;
+  --desk-cream: #fff9ef;
+  --desk-ink: #44352e;
+  --desk-brown: #70432f;
+  --desk-rust: #a4452c;
+  --desk-sage: #dfe9d9;
+  --desk-green: #285740;
+  --desk-peach: #f5dfd4;
+  --desk-yellow: #f4e8c0;
+  --desk-lavender: #e9dfe9;
+
+  width: 100%;
+  background: var(--desk-paper);
+  color: var(--desk-ink);
+}
+
+.niah-desk-section *,
+.niah-desk-section *::before,
+.niah-desk-section *::after {
+  box-sizing: border-box;
+}
+
+/* ====================================================
+   1. PHOTOGRAPHIC DESK
+   ==================================================== */
+
+.niah-desk-scene {
+  position: relative;
+  isolation: isolate;
+container-type: inline-size;
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+
+  overflow: hidden;
+  background: #c4a28c;
+}
+
+/* Keep the entire original composition visible */
+
+.niah-desk-photo {
+display: block;
+width: 100%;
+max-width: none;
+height: auto;
+object-fit: contain;
+}
+
+/* Gentle bottom transition into the website */
+
+.niah-desk-scene::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 7%;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(251, 246, 239, 0.12)
+  );
+
+  pointer-events: none;
+}
+
+/* ====================================================
+   2. INTERACTIVE OBJECT AREAS
+   ==================================================== */
+
+.niah-desk-hotspots {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+}
+
+.niah-desk-hotspot {
+  position: absolute;
+  display: block;
+
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  outline: none;
+  box-shadow: none;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*
+  HOTSPOT POSITIONS
+
+  These percentages correspond to objects
+  in the actual uploaded desk photograph.
+
+  Keep positioning percentage-based so the
+  hotspots scale along with the image.
+*/
+
+/* LAPTOP — WEB & UI/UX */
+
+.hotspot-web {
+  left: 8%;
+  top: 30%;
+  width: 37%;
+  height: 39%;
+  z-index: 2;
+}
+
+/* IPAD — MARKETING */
+
+.hotspot-marketing {
+  left: 55%;
+  top: 54%;
+  width: 28%;
+  height: 23%;
+  z-index: 3;
+}
+
+/* SKETCHBOOK — ARTWORK */
+
+.hotspot-artwork {
+  left: 4%;
+  top: 19%;
+  width: 29%;
+  height: 25%;
+  z-index: 4;
+}
+
+/* PHOTOGRAPHS — ABOUT ME */
+
+.hotspot-about {
+  left: 55%;
+  top: 58%;
+  width: 19%;
+  height: 19%;
+  z-index: 5;
+}
+
+/* BRUSH JAR — CONTACT */
+
+.hotspot-contact {
+  left: 47%;
+  top: 30%;
+  width: 11%;
+  height: 21%;
+  z-index: 6;
+}
+
+/* ====================================================
+   3. INTERACTION FEEDBACK
+   ==================================================== */
+
+/*
+  No giant hover rectangles.
+
+  We preserve the actual photograph and
+  reveal a small paper label instead.
+*/
+
+.niah-desk-hotspot:hover,
+.niah-desk-hotspot:focus-visible {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* Decorative indicator near the paper label */
+
+.niah-desk-hotspot::before {
+  content: "✳";
+
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  width: 31px;
+  height: 31px;
+
+  border-radius: 50%;
+  background: var(--desk-cream);
+
+  color: var(--desk-rust);
+  font-size: 1.05rem;
+  line-height: 1;
+
+  box-shadow:
+    0 3px 12px rgba(46, 30, 21, 0.22);
+
+  opacity: 0;
+  transform: translate(-50%, 6px);
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+
+  pointer-events: none;
+}
+
+/* Show small visual cue on interaction */
+
+.niah-desk-hotspot:hover::before,
+.niah-desk-hotspot:focus-visible::before {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ====================================================
+   4. HANDMADE PAPER LABELS
+   ==================================================== */
+
+.niah-desk-tooltip {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  z-index: 5;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: max-content;
+  max-width: 92%;
+
+  min-height: 46px;
+  padding: 10px 18px;
+
+  border: 1px solid #a27b65;
+  border-radius: 3px;
+
+  background: #fff6e6;
+  color: #653b2c;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(1rem, 1.45vw, 1.65rem);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 1.1;
+  text-align: center;
+  white-space: normal;
+
+  box-shadow:
+    2px 3px 0 rgba(110, 70, 47, 0.18),
+    5px 9px 17px rgba(40, 29, 23, 0.18);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-4deg)
+    scale(0.96);
+
+  transform-origin: center;
+
+  transition:
+    opacity 180ms ease,
+    visibility 180ms ease,
+    transform 220ms ease;
+
+  pointer-events: none;
+}
+
+/* Little warm paper edge */
+
+.niah-desk-tooltip::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 15%;
+  width: 34px;
+  height: 9px;
+
+  background: rgba(219, 180, 134, 0.65);
+  transform: rotate(-7deg);
+}
+
+/* Arrow */
+
+.niah-desk-tooltip > span {
+  color: #a4452c;
+  font-family: Georgia, serif;
+  font-size: 1.15rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* Visible on hover AND keyboard focus */
+
+.niah-desk-hotspot:hover .niah-desk-tooltip,
+.niah-desk-hotspot:focus-visible .niah-desk-tooltip {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-2deg)
+    scale(1);
+}
+
+/* ====================================================
+   5. ACCESSIBLE KEYBOARD FOCUS
+   ==================================================== */
+
+/*
+  Show focus on the PAPER LABEL rather than
+  drawing a huge rectangle around the object.
+
+  Unlike a hover-only effect, the label becomes
+  explicitly visible on keyboard focus.
+*/
+
+.niah-desk-hotspot:focus-visible .niah-desk-tooltip {
+  background: #fffdf3;
+
+  outline: 4px solid #214d3a;
+  outline-offset: 4px;
+
+  box-shadow:
+    0 0 0 8px rgba(255, 250, 242, 0.96),
+    5px 9px 20px rgba(40, 29, 23, 0.22);
+}
+
+.niah-desk-hotspot:focus-visible
+.niah-desk-tooltip > span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Keep the focused object above neighboring
+   hotspots so the label remains visible */
+
+.niah-desk-hotspot:focus-visible {
+  z-index: 20;
+}
+
+/* ====================================================
+   6. INTRODUCTION BELOW THE DESK
+   ==================================================== */
+
+.niah-desk-explore {
+  width: min(1380px, 90%);
+  margin-inline: auto;
+
+  padding:
+    clamp(55px, 7vw, 115px)
+    0
+    clamp(75px, 8vw, 125px);
+}
+
+.niah-desk-explore-heading {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+
+  max-width: 1000px;
+  margin-bottom: 55px;
+}
+
+.niah-desk-explore-heading > span {
+  color: var(--desk-rust);
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  line-height: 1;
+}
+
+.niah-desk-explore h1 {
+  max-width: 1050px;
+  margin: 0 0 25px;
+
+  color: var(--desk-ink);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(3.2rem, 6vw, 7rem);
+  font-weight: 600;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.niah-desk-explore-heading p {
+  max-width: 660px;
+  margin: 0;
+
+  color: #58483e;
+  font-size: clamp(1rem, 1.25vw, 1.13rem);
+  line-height: 1.8;
+}
+
+/* ====================================================
+   7. PORTFOLIO CATEGORY NAVIGATION
+   ==================================================== */
+
+/*
+  Instead of chunky generic cards, these
+  resemble a series of studio file labels.
+*/
+
+.niah-desk-link-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: clamp(10px, 1.5vw, 20px);
+  align-items: stretch;
+}
+
+/* Individual file label */
+
+.niah-desk-text-link {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+
+  min-width: 0;
+  min-height: 165px;
+  padding: 24px 20px 20px;
+
+  border: 1px solid #cfbcae;
+  border-top: 5px solid var(--desk-green);
+  border-radius: 5px 5px 12px 12px;
+
+  background: #fffaf2;
+  color: var(--desk-ink);
+
+  text-decoration: none;
+
+  box-shadow:
+    2px 5px 0 rgba(88, 56, 38, 0.055);
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+/* Individual category palettes */
+
+.niah-desk-text-link.link-web {
+  border-top-color: #56765c;
+  background: #e7ede0;
+}
+
+.niah-desk-text-link.link-marketing {
+  border-top-color: #ae644a;
+  background: #f7e0d5;
+}
+
+.niah-desk-text-link.link-artwork {
+  border-top-color: #ae8748;
+  background: #f6e8bf;
+}
+
+.niah-desk-text-link.link-about {
+  border-top-color: #886379;
+  background: #eee2e9;
+}
+
+.niah-desk-text-link.link-contact {
+  border-top-color: #967655;
+  background: #eee3d3;
+}
+
+.niah-desk-text-link:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    3px 10px 0 rgba(88, 56, 38, 0.1);
+}
+
+.niah-desk-text-link:focus-visible {
+  position: relative;
+  z-index: 3;
+
+  outline: 3px solid #214d3a;
+  outline-offset: 5px;
+
+  box-shadow:
+    0 0 0 8px var(--desk-paper);
+}
+
+/* Small indexing numbers */
+
+.niah-desk-link-number {
+  color: #526a54;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+/* Copy */
+
+.niah-desk-link-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.niah-desk-link-copy strong {
+  display: block;
+
+  color: #49352c;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(1.55rem, 2.1vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.niah-desk-link-copy > span {
+  display: block;
+
+  color: #58483e;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+/* Arrow */
+
+.niah-desk-link-arrow {
+  align-self: flex-end;
+  margin-top: auto;
+
+  color: #874128;
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.niah-desk-text-link:hover
+.niah-desk-link-arrow {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ====================================================
+   8. SCROLL TO FEATURED WORK
+   ==================================================== */
+
+.niah-desk-scroll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 48px;
+  margin-top: 34px;
+  padding: 10px 0;
+
+  color: #733c2a;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.5;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+
+  transition: color 180ms ease;
+}
+
+.niah-desk-scroll:hover {
+  color: #a4452c;
+}
+
+.niah-desk-scroll:focus-visible {
+  outline: 3px solid #214d3a;
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+/* ====================================================
+   9. TABLETS AND SMALL DESKTOPS
+   ==================================================== */
+
+@media (max-width: 1200px) {
+  .niah-desk-link-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .niah-desk-explore {
+    width: 92%;
+  }
+}
+
+/* ====================================================
+   10. MOBILE AND ZOOMED LAYOUTS
+   ==================================================== */
+
+/*
+  A flat photo gets smaller on mobile.
+  We never make users hunt for tiny hotspots.
+
+  The photo stays visible, but real text
+  navigation takes over.
+*/
+
+@media (max-width: 900px) {
+  .niah-desk-hotspots {
+    display: none;
+  }
+
+  .niah-desk-scene {
+    width: 100%;
+      max-width: none;
+  margin-inline: auto;
+  }
+
+  .niah-desk-photo {
+    width: 100%;
+    height: auto;
+  }
+
+  .niah-desk-explore {
+    padding-top: 0px;
+  }
+
+  .niah-desk-link-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .niah-desk-text-link {
+    min-height: 145px;
+  }
+}
+
+/* ====================================================
+   11. SMALL PHONES
+   ==================================================== */
+
+@media (max-width: 580px) {
+  .niah-desk-explore {
+    width: 88%;
+    padding-top: 42px;
+    padding-bottom: 75px;
+  }
+
+  .niah-desk-explore-heading {
+    gap: 12px;
+    margin-bottom: 35px;
+  }
+
+  .niah-desk-explore-heading > span {
+    font-size: 1.8rem;
+  }
+
+  .niah-desk-explore h1 {
+    font-size: clamp(2.7rem, 11vw, 4.3rem);
+    line-height: 0.98;
+  }
+
+  .niah-desk-explore-heading p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .niah-desk-link-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .niah-desk-text-link {
+    min-height: 115px;
+    padding: 19px 20px;
+    gap: 8px;
+  }
+
+  .niah-desk-link-copy strong {
+    font-size: 1.85rem;
+  }
+
+  .niah-desk-link-copy > span {
+    font-size: 0.9rem;
+  }
+
+  .niah-desk-scroll {
+    margin-top: 25px;
+  }
+}
+
+/* ====================================================
+   12. TEXT RESIZING AND REFLOW
+   ==================================================== */
+
+@media (max-width: 380px) {
+  .niah-desk-explore {
+    width: 90%;
+  }
+
+  .niah-desk-explore-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .niah-desk-link-copy strong {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ====================================================
+   13. REDUCED MOTION
+   ==================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .niah-desk-section *,
+  .niah-desk-section *::before,
+  .niah-desk-section *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .niah-desk-hotspot::before {
+    transition: none;
+  }
+
+  .niah-desk-tooltip {
+    transition: none;
+  }
+
+  .niah-desk-text-link:hover {
+    transform: none;
+  }
+}
+
+/* ====================================================
+   14. FORCED COLORS / HIGH CONTRAST MODE
+   ==================================================== */
+
+@media (forced-colors: active) {
+  .niah-desk-tooltip {
+    color: CanvasText;
+    background: Canvas;
+    border: 2px solid LinkText;
+    forced-color-adjust: auto;
+  }
+
+  .niah-desk-hotspot:focus-visible
+  .niah-desk-tooltip {
+    outline: 3px solid Highlight;
+  }
+
+  .niah-desk-text-link {
+    border: 2px solid LinkText;
+    background: Canvas;
+    color: LinkText;
+  }
+
+  .niah-desk-text-link:focus-visible {
+    outline: 3px solid Highlight;
+  }
+
+  .niah-desk-scroll:focus-visible {
+    outline: 3px solid Highlight;
+  }
+}
+/* ==========================================
+   REFINED OBJECT INTERACTIONS
+   ========================================== */
+
+/* LAPTOP — WEB & UI/UX */
+
+.hotspot-web {
+  left: 9%;
+  top: 22%;
+  width: 45%;
+  height: 38%;
+}
+
+.hotspot-web .niah-desk-tooltip {
+  left: 45%;
+  top: 64%;
+}
+
+/* IPAD — MARKETING */
+
+.hotspot-marketing {
+  left: 60%;
+  top: 57%;
+  width: 27%;
+  height: 24%;
+}
+
+.hotspot-marketing .niah-desk-tooltip {
+  left: 10%;
+  top: 12%;
+}
+
+/* SKETCHBOOK — ARTWORK */
+
+.hotspot-artwork {
+  left: 4%;
+  top: 69%;
+  width: 35%;
+  height: 27%;
+}
+
+.hotspot-artwork .niah-desk-tooltip {
+  left: 76%;
+  top: 40%;
+}
+
+/* POLAROIDS — ABOUT */
+
+.hotspot-about {
+  left: 35%;
+  top: 78%;
+  width: 22%;
+  height: 18%;
+}
+
+.hotspot-about .niah-desk-tooltip {
+  left: 40%;
+  top: 18%;
+}
+
+/* PHONE — CONTACT */
+
+.hotspot-contact {
+  left: 48%;
+  top: 42%;
+  width: 23%;
+  height: 12%;
+  z-index: 7;
+}
+
+.hotspot-contact .niah-desk-tooltip {
+  left: 30%;
+  top: 20%;
+}
+
+
+/* REMOVE FLOATING STAR OVER OBJECTS */
+
+.niah-desk-hotspot::before {
+  display: none;
+}
+
+/* KEEP LABELS CENTERED ON THEIR POSITIONS */
+
+.niah-desk-tooltip {
+  bottom: auto;
+}
+/* MARKETING — center label on iPad screen */
+.hotspot-marketing .niah-desk-tooltip {
+  left: 34%;
+  top: 13%;
+}
+
+/* ARTWORK — center label on sketchbook */
+.hotspot-artwork .niah-desk-tooltip {
+  left: 43%;
+  top: 2%;
+}
+
+/* =========================================
+   THE SCRAPBOOK INDEX
+   ========================================= */
+
+.niah-desk-explore {
+  width: min(1320px, 90%);
+  padding: 64px 0 80px;
+}
+
+.niah-desk-explore-heading {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  max-width: none;
+  margin-bottom: 38px;
+}
+
+.niah-explore-flower {
+  color: #ac5a3e;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.niah-explore-eyebrow {
+  margin: 0 0 10px !important;
+  color: #526f5a !important;
+  font-size: 0.72rem !important;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.niah-desk-explore h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2.8rem, 4.5vw, 5rem);
+  line-height: 0.95;
+}
+
+.niah-desk-explore h1 em {
+  color: #a7472e;
+  font-weight: 500;
+}
+
+.niah-desk-explore-heading p:not(.niah-explore-eyebrow) {
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.niah-explore-signature {
+  align-self: center;
+  margin-left: auto;
+  color: #865b46;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.6rem;
+  font-style: italic;
+  white-space: nowrap;
+  transform: rotate(-6deg);
+}
+
+/* Slim paper index rather than large cards */
+
+.niah-desk-link-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.niah-desk-section .niah-desk-text-link {
+  flex: 1 1 175px;
+  min-width: 0;
+  min-height: 0;
+  padding: 15px 14px;
+  gap: 5px;
+  border: 1px solid #d5c1ae;
+  border-radius: 4px;
+  box-shadow: 2px 4px 0 rgba(92, 66, 49, 0.08);
+}
+
+.niah-desk-link-number {
+  font-size: 0.65rem;
+}
+
+.niah-desk-link-copy {
+  gap: 5px;
+}
+
+.niah-desk-link-copy strong {
+  font-size: clamp(1.35rem, 1.7vw, 1.8rem);
+}
+
+.niah-desk-link-copy > span {
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.niah-desk-link-arrow {
+  font-size: 1.1rem;
+}
+
+.niah-desk-section .niah-desk-text-link:hover {
+  transform: translateY(-3px);
+}
+
+.niah-desk-scroll {
+  margin-top: 24px;
+}
+
+/* Responsive and accessible */
+
+@media (max-width: 760px) {
+  .niah-desk-explore {
+    padding: 40px 0 60px;
+  }
+
+  .niah-desk-explore-heading {
+    flex-wrap: wrap;
+  }
+
+  .niah-explore-signature {
+    display: none;
+  }
+
+  .niah-desk-link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .niah-desk-section .niah-desk-text-link {
+    min-height: 95px;
+  }
+}
+
+@media (max-width: 480px) {
+  .niah-desk-link-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .niah-desk-section .niah-desk-text-link {
+    min-height: 80px;
+  }
+
+  .niah-desk-explore h1 {
+    font-size: clamp(2.5rem, 10vw, 3.6rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .niah-desk-section .niah-desk-text-link:hover {
+    transform: none;
+  }
+
+  .niah-explore-signature {
+    transform: none;
+  }
+}
+
+/* NATURAL PAPER OVERLAP */
+
+.niah-desk-section {
+  background: #f8f2ea;
+}
+
+.niah-desk-scene::after {
+  display: none;
+}
+
+.niah-desk-explore {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+  background: transparent;
+}
+
+.niah-desk-explore::before {
+  content: "";
+  display: block;
+  position: absolute;
+
+  left: 50%;
+  top: -55px;
+  width: 100vw;
+  height: 115px;
+
+  transform: translateX(-50%);
+
+  background-image: url("../assets/images/niah-real-torn-edge.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  /* Remove the previous geometric cut and fading */
+  clip-path: none;
+  mask-image: none;
+  -webkit-mask-image: none;
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media (max-width: 600px) {
+  .niah-desk-explore::before {
+    top: -40px;
+    height: 65px;
+  }
+}
+/* ===== FONT SYSTEM ===== */
+:root {
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Manrope", sans-serif;
+
+  --paper: #fbf7f0;
+  --ink: #4f3a33;
+  --muted: #6f5a52;
+  --terracotta: #b85b3d;
+  --sage: #dfe9da;
+  --blush: #f3ddd4;
+  --butter: #f3e4a9;
+  --lavender: #e8deec;
+  --sand: #efe7d8;
+  --line: rgba(92, 63, 53, 0.16);
+  --shadow-soft: 0 10px 24px rgba(72, 46, 35, 0.08);
+  --shadow-note: 0 10px 20px rgba(60, 40, 30, 0.10);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+
+h1, h2, h3, h4, .niah-desk-link-copy strong {
+  font-family: var(--font-display);
+}
+.niah-desk-explore {
+  background: #fbf7f0;
+  padding: 4rem 4rem 5rem;
+}
+
+.niah-desk-explore-heading {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 2.75rem;
+}
+
+.niah-explore-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5e7d67;
+  margin-bottom: 0.8rem;
+}
+
+.niah-desk-explore-heading h1 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+
+.niah-desk-explore-heading h1 em {
+  color: var(--terracotta);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.niah-desk-explore-heading p {
+  max-width: 36rem;
+  font-size: 1.18rem;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+}
+
+.niah-explore-signature {
+  justify-self: end;
+  align-self: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  color: var(--terracotta);
+  transform: rotate(-3deg);
+  white-space: nowrap;
+}
+.niah-desk-link-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(160px, 1fr));
+  gap: 1.1rem;
+  align-items: start;
+}
+
+.niah-desk-text-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  padding: 1.15rem 1rem 1rem;
+  border-radius: 0;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid rgba(92, 63, 53, 0.10);
+  box-shadow: var(--shadow-note);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  overflow: visible;
+}
+
+/* little tape at top */
+.niah-desk-text-link::before,
+.niah-desk-text-link::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 34px;
+  height: 14px;
+  background: rgba(255, 244, 205, 0.75);
+  border: 1px solid rgba(160, 140, 100, 0.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.niah-desk-text-link::before {
+  left: 16px;
+  transform: rotate(-8deg);
+}
+
+.niah-desk-text-link::after {
+  right: 16px;
+  transform: rotate(7deg);
+}
+
+/* sticky note colors */
+.link-web {
+  background: var(--sage);
+  transform: rotate(-1.2deg);
+}
+
+.link-marketing {
+  background: var(--blush);
+  transform: rotate(0.7deg);
+}
+
+.link-artwork {
+  background: var(--butter);
+  transform: rotate(-0.6deg);
+}
+
+.link-about {
+  background: var(--lavender);
+  transform: rotate(1deg);
+}
+
+.link-contact {
+  background: var(--sand);
+  transform: rotate(-0.4deg);
+}
+
+.niah-desk-text-link:hover,
+.niah-desk-text-link:focus-visible {
+  transform: translateY(-6px) rotate(0deg);
+  box-shadow: 0 18px 30px rgba(60, 40, 30, 0.14);
+}
+
+.niah-desk-text-link:focus-visible {
+  outline: 3px solid #5e7d67;
+  outline-offset: 4px;
+}
+.niah-desk-link-number {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #5e7d67;
+}
+
+.niah-desk-link-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.niah-desk-link-copy strong {
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.niah-desk-link-copy span {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 14ch;
+}
+
+.niah-desk-link-arrow {
+  margin-top: 1rem;
+  align-self: flex-end;
+  font-size: 1.4rem;
+  color: var(--terracotta);
+}
+.niah-desk-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.niah-desk-scroll:hover,
+.niah-desk-scroll:focus-visible {
+  color: var(--terracotta);
+}
+@media (max-width: 1100px) {
+  .niah-desk-link-grid {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+  }
+
+  .niah-desk-explore-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .niah-explore-signature {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 760px) {
+  .niah-desk-explore {
+    padding: 2.5rem 1.25rem 3rem;
+  }
+
+  .niah-desk-link-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .niah-desk-text-link {
+    min-height: 165px;
+  }
+
+  .niah-desk-link-copy strong {
+    font-size: 1.7rem;
+  }
+
+  .niah-desk-explore-heading p {
+    font-size: 1.04rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .niah-desk-link-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .niah-desk-text-link {
+    transform: none !important;
+  }
+}
+/* =====================================
+   HANDWRITTEN DESK DETAILS
+   ===================================== */
+
+/* Introduction heading */
+
+.studio-home .niah-desk-explore h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(3.7rem, 6vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* A NOTE FROM ME */
+
+.studio-home .niah-explore-eyebrow {
+  font-family: var(--font-notes);
+  font-size: 1.1rem !important;
+  letter-spacing: 0.03em;
+}
+
+/* Actual sticky-note titles */
+
+.studio-home .niah-desk-link-copy strong {
+  font-family: var(--font-notes);
+  font-size: clamp(1.35rem, 1.8vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+/* Sticky-note descriptions */
+
+.studio-home .niah-desk-link-copy > span {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+/* Number labels */
+
+.studio-home .niah-desk-link-number {
+  font-family: var(--font-notes);
+  font-size: 0.95rem;
+}
+
+/* Personal signature */
+
+.studio-home .niah-explore-signature {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 3.3rem);
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+/* Scroll tab */
+
+.studio-home .niah-desk-scroll {
+  font-family: var(--font-notes);
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+/* Maintain readable text on smaller screens */
+
+@media (max-width: 600px) {
+  .studio-home .niah-desk-explore h1 {
+    font-size: clamp(3rem, 11vw, 4.5rem);
+  }
+
+  .studio-home .niah-desk-link-copy strong {
+    font-size: 1.6rem;
+  }
+}
+
+/* HANDWRITTEN INTERACTIVE DESK LABELS */
+
+.niah-desk-hotspot .niah-desk-tooltip {
+  font-family: "Indie Flower", cursive;
+  font-size: clamp(1.1rem, 1.6vw, 1.7rem);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+/* Keep the little arrow matching */
+
+.niah-desk-tooltip > span {
+  font-family: "Handlee", cursive;
+}
+/* REMOVE OUTER PAGE GAPS */
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f8f2ea;
+}
+
+.niah-desk-section {
+  margin-top: 0;
+  padding-top: 0;
+}
+/* ==========================================
+   RESPONSIVE DESK POPUPS
+   Scale with the photograph
+   ========================================== */
+
+.niah-desk-tooltip {
+  font-size: 1.35cqw;
+  line-height: 1.2;
+
+  padding: 0.7cqw 1.1cqw;
+
+  width: max-content;
+  max-width: 23cqw;
+}
+
+/* Keep handwritten titles proportional */
+
+.niah-desk-tooltip strong {
+  font-size: 1.6cqw;
+}
+
+/* Scale supporting text too */
+
+.niah-desk-tooltip span {
+  font-size: 1.15cqw;
+}
+
+/* Accessible fallback for older browsers */
+
+@supports not (font-size: 1cqw) {
+  .niah-desk-tooltip {
+    font-size: 1rem;
+    padding: 8px 13px;
+    max-width: 260px;
+  }
+}
+/* ==========================================
+   MOBILE — REVEAL BOTTOM OF DESK PHOTO
+   ========================================== */
+
+@media (max-width: 760px) {
+  .niah-desk-explore::before {
+    /* Reduce how much paper overlaps the photo */
+    top: -8px;
+    height: 42px;
+  }
+}
+
+/* ===================================================
+   INTRO PHOTOGRAPHS — INTERACTIVE POLAROID STACK
+   Scoped to the intro; desk photo, navbar, hotspots unchanged.
+   =================================================== */
+
+.studio-home .niah-desk-explore-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+  column-gap: clamp(24px, 5vw, 76px);
+  row-gap: 2px;
+  align-items: center;
+  width: 100%;
+  max-width: none;
+}
+
+.niah-intro-copy {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.niah-intro-photo-stack {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  min-width: 0;
+  height: clamp(290px, 32vw, 430px);
+  perspective: 1000px;
+  isolation: isolate;
+}
+
+.niah-intro-photo-flower {
+  position: absolute;
+  left: 1%;
+  top: 5%;
+  font-family: var(--font-heading, cursive);
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  color: #ac5036;
+}
+
+/* One button controls the full pile: no individual photo flip buttons. */
+.niah-photo-stack-button {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.niah-photo-stack-button:focus-visible {
+  outline: 3px solid #356b51;
+  outline-offset: 5px;
+  border-radius: 6px;
+}
+
+.niah-polaroid {
+  position: absolute;
+  top: 6%;
+  left: 17%;
+  display: block;
+  width: 66%;
+  aspect-ratio: 0.78;
+  border-radius: 1px;
+  pointer-events: none;
+  filter: drop-shadow(4px 8px 9px rgba(78, 47, 34, 0.20));
+  transition: transform 380ms cubic-bezier(.2,.8,.25,1);
+  transform-origin: center;
+}
+
+/* Small offsets keep all three photos visibly stacked. */
+.niah-polaroid--depth-0 {
+  z-index: 3;
+  transform: translate(0, 0) rotate(-5deg);
+}
+.niah-polaroid--depth-1 {
+  z-index: 2;
+  transform: translate(5%, -3%) rotate(8deg);
+}
+.niah-polaroid--depth-2 {
+  z-index: 1;
+  transform: translate(-5%, 3%) rotate(-10deg);
+}
+
+/* Front photo leaves on the right, passes behind, and rejoins the pile. */
+.niah-polaroid--depth-0.is-moving {
+  animation: niah-photo-to-back 650ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes niah-photo-to-back {
+  0% {
+    z-index: 4;
+    transform: translate(0, 0) rotate(-5deg);
+  }
+  42% {
+    z-index: 4;
+    transform: translate(70%, -9%) rotate(15deg);
+  }
+  55% {
+    z-index: 0;
+    transform: translate(70%, -9%) rotate(15deg);
+  }
+  100% {
+    z-index: 0;
+    transform: translate(-5%, 3%) rotate(-10deg);
+  }
+}
+
+.niah-polaroid-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 8% 8% 5%;
+  background: #fffdf5;
+  border: 1px solid #e0d6c5;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .8);
+  overflow: hidden;
+}
+
+.niah-polaroid-front img {
+  display: block;
+  width: 100%;
+  height: 79%;
+  object-fit: cover;
+  object-position: center;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: #e8ded1;
+}
+
+.niah-polaroid-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20%;
+  min-height: 25px;
+  font-family: var(--font-heading, "Caveat", cursive);
+  font-size: clamp(1.05rem, 1.6vw, 1.6rem);
+  color: #65483b;
+  white-space: nowrap;
+}
+
+.niah-intro-photo-hint {
+  position: absolute;
+  bottom: 1%;
+  left: 15%;
+  color: #8a604b;
+  font-family: var(--font-notes, "Indie Flower", cursive);
+  font-size: clamp(0.95rem, 1.25vw, 1.2rem);
+  transform: rotate(-3deg);
+}
+
+.studio-home .niah-desk-explore-heading > .niah-explore-signature {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-self: center;
+  align-self: start;
+  margin: 0.1rem 0 0;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .studio-home .niah-desk-explore-heading {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 16px;
+  }
+  .niah-intro-photo-stack {
+    grid-column: 1;
+    grid-row: 1;
+    width: min(100%, 480px);
+    height: clamp(300px, 65vw, 410px);
+    margin-inline: auto;
+  }
+  .niah-intro-copy {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .studio-home .niah-desk-explore-heading > .niah-explore-signature {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 760px) {
+  /* Existing stylesheet hides the signature on mobile. */
+  .studio-home .niah-desk-explore-heading > .niah-explore-signature {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .niah-intro-photo-stack {
+    height: 285px;
+  }
+  .niah-polaroid-caption {
+    font-size: 1rem;
+  }
+  .niah-intro-photo-hint {
+    bottom: 0;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .niah-polaroid { transition: none; }
+  .niah-polaroid--depth-0.is-moving { animation: none; }
+}
+
+@media (max-width: 420px) {
+  .niah-polaroid { width: 59%; left: 20.5%; top: 4%; }
+}
+
+/* Intro links: retain the original scrapbook type styling. */
+.niah-intro-about-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  width: fit-content;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.niah-intro-about-link span {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.niah-intro-about-link:hover span,
+.niah-intro-about-link:focus-visible span {
+  transform: translate(2px, -2px);
+}
+
+.niah-intro-desk-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.niah-intro-desk-link:hover em,
+.niah-intro-desk-link:focus-visible em {
+  text-decoration: underline;
+  text-decoration-thickness: 0.045em;
+  text-underline-offset: 0.08em;
+}
+
+.niah-intro-about-link:focus-visible,
+.niah-intro-desk-link:focus-visible {
+  outline: 3px solid #245d50;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .niah-intro-about-link span { transition: none; }
+}

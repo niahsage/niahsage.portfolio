@@ -1,0 +1,313 @@
+/* NIAH / HOMEPAGE FINALE — Oct 2026
+   Handcrafted corkboard, About page postcard and a calm final letter.
+   Never modify photograph, desk hotspots, functioning Polaroid and reel CSS. */
+
+/* -------- 01: PINNED INTRO / REAL CORKBOARD -------- */
+.studio-home .niah-desk-explore {
+  width: min(1450px, 96%);
+  max-width: none;
+  padding-top: clamp(54px, 6vw, 88px);
+  background: transparent;
+}
+.studio-home .niah-corkboard {
+  position: relative;
+  width: 100%;
+  padding: clamp(24px, 4vw, 58px) clamp(22px, 4.2vw, 62px) clamp(28px, 3vw, 47px);
+  border: clamp(8px, 1.1vw, 14px) solid #816149;
+  border-radius: 5px;
+  background:
+    radial-gradient(circle at 2px 3px, rgba(100,61,32,.10) .75px, transparent 1.4px) 0 0 / 9px 10px,
+    radial-gradient(circle at 6px 5px, rgba(255,241,208,.38) 1px, transparent 2px) 0 0 / 17px 19px,
+    linear-gradient(135deg, #bd986e, #c8a87c 49%, #b99269);
+  box-shadow: inset 0 0 0 3px rgba(255,235,192,.30),
+              inset 0 0 22px rgba(91,51,25,.17),
+              8px 13px 25px rgba(65,42,25,.15);
+  isolation: isolate;
+}
+/* A couple of handmade details on the cork, away from actual controls. */
+.studio-home .niah-corkboard::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 31% 25%, #fbe4cf, #b75643 50%, #713b32 75%);
+  box-shadow: 1px 3px 3px rgba(71,43,25,.22);
+  pointer-events: none;
+}
+.studio-home .niah-corkboard::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 43%;
+  width: 108px;
+  height: 27px;
+  background: rgba(246,221,162,.45);
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+.studio-home .niah-corkboard .niah-desk-explore-heading {
+  align-items: center;
+  margin-bottom: clamp(28px, 4vw, 54px);
+}
+.studio-home .niah-corkboard .niah-intro-copy {
+  position: relative;
+  padding: clamp(18px, 2.6vw, 34px);
+  background: #fffaf0;
+  border: 1px solid rgba(132,93,63,.23);
+  box-shadow: 5px 9px 0 rgba(103,64,39,.12), 0 10px 22px rgba(76,49,33,.12);
+  transform: rotate(1deg);
+}
+.studio-home .niah-corkboard .niah-intro-copy::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  right: 27%;
+  width: 76px;
+  height: 25px;
+  background: rgba(231,193,144,.56);
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+/* 'A desk full of ideas' remains an action, not a broken HashRouter anchor. */
+.studio-home .niah-intro-desk-link {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.studio-home .niah-corkboard .niah-explore-signature {
+  width: max-content;
+  max-width: 90%;
+  padding: 3px 20px;
+  color: #8e422e;
+  background: #fff4d9;
+  box-shadow: 3px 5px 0 rgba(62,37,25,.14);
+  transform: rotate(-2deg);
+}
+.studio-home .niah-corkboard .niah-desk-link-grid {
+  gap: clamp(11px, 1.6vw, 20px);
+  align-items: stretch;
+}
+.studio-home .niah-corkboard .niah-desk-text-link {
+  padding-top: 21px;
+  box-shadow: 4px 8px 0 rgba(78,47,29,.12), 0 9px 18px rgba(61,35,23,.11);
+  border: 1px solid rgba(95,62,40,.18);
+}
+.studio-home .niah-corkboard .niah-desk-text-link:focus-visible {
+  outline: 3px solid #174e42;
+  outline-offset: 5px;
+}
+.studio-home .niah-desk-scroll-button {
+  min-height: 48px;
+  margin: 28px 0 0;
+  padding: 8px 14px;
+  border: 1px dashed #795b42;
+  border-radius: 3px;
+  background: #fff9ed;
+  color: #533e30;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 2px 3px 0 rgba(76,49,35,.10);
+}
+.studio-home .niah-desk-scroll-button:hover { transform: translateY(-2px); }
+.studio-home .niah-desk-scroll-button:focus-visible { outline: 3px solid #23594c; outline-offset: 3px; }
+
+/* -------- 02: 'A MAKER OF MANY THINGS' / PAPER STORY -------- */
+.studio-home .studio-about { gap: clamp(22px, 5vw, 84px); }
+.studio-home .studio-about-copy {
+  position: relative;
+  padding: clamp(25px, 3vw, 52px);
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 38px, rgba(110,151,141,.075) 39px, transparent 40px),
+    #fffaf0;
+  border: 1px solid rgba(104,81,60,.19);
+  box-shadow: 6px 9px 0 rgba(75,93,71,.14), 0 15px 33px rgba(56,67,44,.12);
+  transform: rotate(.4deg);
+}
+.studio-home .studio-about-copy::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 36%;
+  width: 95px;
+  height: 26px;
+  background: rgba(233,191,139,.61);
+  transform: rotate(-4deg);
+  pointer-events: none;
+}
+.studio-home .studio-about-copy h2 {
+  font-family: "Caveat", cursive;
+  font-size: clamp(3.65rem, 5.6vw, 6.5rem);
+  line-height: .9;
+  font-weight: 700;
+  margin: 16px 0;
+  color: #4b392f;
+}
+.studio-home .studio-about-copy h2 em {
+  font-weight: 700;
+  font-style: normal;
+  color: #a84f38;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: rgba(178,89,61,.35);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 9px;
+}
+.studio-home .studio-about-copy > .studio-about-handnote {
+  font: 1.4rem/1.25 "Indie Flower", cursive;
+  color: #476650;
+  margin: 14px 0 18px;
+  max-width: unset;
+}
+.studio-home .studio-about-copy > p:not(.studio-section-eyebrow):not(.studio-about-handnote) {
+  font-family: "Handlee", cursive;
+  font-size: clamp(1.1rem, 1.25vw, 1.32rem);
+  line-height: 1.6;
+  color: #57473c;
+}
+.studio-home .studio-about-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  min-height: 48px;
+  border: 1px solid #8c7156;
+  border-bottom: 3px solid #6d493a;
+  background: #e4ebdc;
+  box-shadow: 3px 4px 0 rgba(82,49,36,.13);
+  color: #3c4b3c;
+  font-family: "Handlee", cursive;
+  font-size: 1.13rem;
+  text-decoration: none;
+}
+.studio-home .studio-about-photo {
+  border: 1px solid #e3d1b5;
+  box-shadow: 10px 13px 0 rgba(89,65,42,.09), 21px 25px 35px rgba(69,47,35,.14);
+}
+
+/* -------- 03: LAST PAGE / HANDWRITTEN LETTER -------- */
+.studio-home .studio-goodbye {
+  padding: clamp(85px, 9vw, 130px) clamp(16px, 4vw, 60px) clamp(75px, 9vw, 110px);
+  background: linear-gradient(180deg, #f5ded1, #f8e8dc 72%, #f9f2e7);
+  text-align: center;
+}
+.studio-home .studio-goodbye > div {
+  position: relative;
+  width: min(850px, 100%);
+  margin: 0 auto;
+  padding: clamp(33px, 5vw, 72px) clamp(24px, 5vw, 65px);
+  background:
+    radial-gradient(circle at 10% 5%, rgba(204,168,125,.09), transparent 40%),
+    repeating-linear-gradient(91deg, rgba(116,78,54,.012) 0 3px, transparent 3px 9px),
+    #fffaf1;
+  border: 1px solid #d0baa1;
+  border-radius: 2px 3px 7px 2px;
+  box-shadow: 9px 13px 0 rgba(105,61,44,.08), 0 16px 34px rgba(92,52,36,.12);
+  transform: rotate(-.5deg);
+}
+.studio-home .studio-goodbye > div::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 115px;
+  height: 30px;
+  background: rgba(236,202,149,.6);
+  transform: translateX(-50%) rotate(3deg);
+}
+.studio-home .studio-goodbye .studio-goodbye-eyebrow {
+  font: 1.14rem "Indie Flower", cursive;
+  color: #547458;
+  letter-spacing: .06em;
+  margin: 10px auto 16px;
+}
+.studio-home .studio-goodbye h2 {
+  font: 700 clamp(3.4rem, 6.6vw, 7rem)/.93 "Caveat", cursive;
+  color: #4b362b;
+  letter-spacing: 0;
+  margin: 14px auto 24px;
+}
+.studio-home .studio-goodbye h2 em { color: #a64d35; font-weight: 700; }
+.studio-home .studio-goodbye .studio-goodbye-message {
+  max-width: 40ch;
+  margin: 0 auto 25px;
+  font: clamp(1.15rem, 1.4vw, 1.4rem)/1.6 "Handlee", cursive;
+  color: #53443a;
+  letter-spacing: 0;
+}
+.studio-home .studio-goodbye-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.studio-home .studio-goodbye-button {
+  min-height: 49px;
+  margin: 0;
+  padding: 13px 21px;
+  border: 1px solid #6a6b4a;
+  border-bottom-width: 3px;
+  border-radius: 3px;
+  background: #e0e9d5;
+  font: 1.2rem "Handlee", cursive;
+  color: #3e513e;
+  box-shadow: 3px 5px 0 rgba(75,63,43,.12);
+}
+.studio-home .studio-goodbye-return {
+  min-height: 49px;
+  padding: 11px 10px;
+  border: 0;
+  background: transparent;
+  color: #875b42;
+  font: 1.15rem "Handlee", cursive;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  cursor: pointer;
+}
+.studio-home .studio-goodbye-return:hover { color: #a44732; }
+.studio-home .studio-goodbye-signature {
+  font: 1.65rem "Caveat", cursive;
+  margin: 30px 0 0;
+  transform: rotate(-2deg);
+  color: #87513a;
+}
+.studio-home .studio-goodbye a:focus-visible,
+.studio-home .studio-goodbye button:focus-visible,
+.studio-home .studio-about a:focus-visible { outline: 3px solid #286752; outline-offset: 4px; }
+
+@media (max-width: 900px) {
+  .studio-home .niah-desk-explore { width: min(100%, 96%); }
+  .studio-home .niah-corkboard { padding: 22px; }
+  .studio-home .studio-about-copy { transform: none; }
+}
+@media (max-width: 600px) {
+  .studio-home .niah-desk-explore { width: 98%; padding: 40px 0 60px; }
+  .studio-home .niah-corkboard { border-width: 7px; padding: 17px 13px 20px; }
+  .studio-home .niah-corkboard .niah-intro-copy { padding: 16px; transform: none; }
+  .studio-home .niah-corkboard .niah-explore-signature { max-width: 100%; font-size: 1.4rem; }
+  .studio-home .studio-about { padding: 68px 5%; }
+  .studio-home .studio-about-copy { padding: 22px; }
+  .studio-home .studio-about-copy h2 { font-size: clamp(3.45rem, 12vw, 5rem); }
+  .studio-home .studio-goodbye { padding: 65px 12px 75px; }
+  .studio-home .studio-goodbye > div { padding: 38px 18px; transform: none; }
+  .studio-home .studio-goodbye h2 { font-size: clamp(3.1rem, 11.5vw, 5rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-home .niah-corkboard .niah-desk-text-link,
+  .studio-home .niah-desk-scroll-button,
+  .studio-home .studio-goodbye-return { transition: none !important; }
+}
+@media print, (forced-colors: active) {
+  .studio-home .niah-corkboard { background: Canvas; border-color: CanvasText; }
+  .studio-home .niah-corkboard::before,
+  .studio-home .niah-corkboard::after,
+  .studio-home .studio-goodbye > div::before { display: none; }
+}

@@ -1,0 +1,108 @@
+/* NIAH / HOMEPAGE FINISHING — OCT 2026
+   Only layer on top of existing handmade layouts. No hotspot, photo or
+   navigation position rules are changed by this file. */
+
+/* Restore useful links in the actual handwritten introduction. */
+.studio-home .niah-intro-about-link {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+  gap: .65rem;
+  margin: 0 0 .8rem;
+  color: #3f664b;
+  font-family: "Indie Flower", cursive;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  letter-spacing: .045em;
+  text-decoration: none;
+  text-underline-offset: .27em;
+}
+.studio-home .niah-intro-about-link:hover,
+.studio-home .niah-intro-about-link:focus-visible { text-decoration: underline; text-decoration-style: wavy; }
+.studio-home .niah-intro-about-link span {
+  display: inline-block;
+  font-size: 1.2em;
+  transition: translate .2s ease;
+}
+.studio-home .niah-intro-about-link:hover span { translate: 3px -2px; }
+.studio-home .niah-intro-desk-link {
+  color: inherit;
+  text-decoration: none;
+  text-decoration-thickness: .075em;
+  text-underline-offset: .09em;
+}
+.studio-home .niah-intro-desk-link:hover,
+.studio-home .niah-intro-desk-link:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: #ab5d43;
+  text-decoration-style: wavy;
+}
+#interactive-desk { scroll-margin-top: 0; }
+
+/* Purposeful tissue-paper seams between chapters. Reuse Niah's real torn
+   paper alpha as a mask, never unrelated floating flower stickers. */
+.studio-home .mk-showcase::before,
+.studio-home .sketchbook-showcase::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: clamp(20px, 3.4vw, 48px);
+  background: rgba(255, 250, 241, .50);
+  -webkit-mask-image: url("../assets/images/niah-real-torn-edge.png");
+  mask-image: url("../assets/images/niah-real-torn-edge.png");
+  -webkit-mask-position: top center;
+  mask-position: top center;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+/* Never put decorative textures above interactive links or section copy. */
+.studio-home .mk-container,
+.studio-home .sketchbook-container { position: relative; z-index: 2; }
+
+/* Tiny shifts feel like lifting a paper object, not moving the whole layout.
+   Individual translate preserves each card's intentionally different rotation. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .studio-home .niah-desk-text-link,
+  .studio-home .mk-archive-tab,
+  .studio-home .sketchbook-all-link,
+  .studio-home .studio-about-link {
+    transition: translate .24s cubic-bezier(.18, 1, .25, 1),
+                box-shadow .24s ease, filter .24s ease;
+  }
+  .studio-home .niah-desk-text-link:hover,
+  .studio-home .niah-desk-text-link:focus-visible,
+  .studio-home .mk-archive-tab:hover,
+  .studio-home .mk-archive-tab:focus-visible,
+  .studio-home .sketchbook-all-link:hover,
+  .studio-home .sketchbook-all-link:focus-visible,
+  .studio-home .studio-about-link:hover,
+  .studio-home .studio-about-link:focus-visible {
+    translate: 0 -4px;
+    filter: drop-shadow(0 6px 7px rgba(73, 53, 39, .14));
+  }
+  .studio-home .niah-desk-text-link:active,
+  .studio-home .mk-archive-tab:active,
+  .studio-home .sketchbook-all-link:active,
+  .studio-home .studio-about-link:active { translate: 0 1px; }
+}
+/* Transparent resting states. Keyboard focus must stay obvious. */
+.studio-home .niah-intro-about-link:focus-visible,
+.studio-home .niah-intro-desk-link:focus-visible {
+  outline: 3px solid #245d50;
+  outline-offset: 6px;
+  border-radius: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-home .niah-intro-about-link span { transition: none; }
+  .studio-home .niah-intro-about-link:hover span { translate: none; }
+  .studio-home .mk-showcase::before,
+  .studio-home .sketchbook-showcase::before { animation: none; }
+}
+@media (forced-colors: active), print {
+  .studio-home .mk-showcase::before,
+  .studio-home .sketchbook-showcase::before { display: none; }
+}

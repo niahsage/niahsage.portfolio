@@ -1,0 +1,192 @@
+/* NIAH / THE SMALL FOLDED PAPER MENU
+   Desktop photographic corner is unmodified until visitors scroll past the desk.
+   On internal pages a light paper tab lives alongside the existing logo. */
+.site-header .paper-pocket { display: none; }
+
+.site-header--compact {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 500;
+  width: 100%;
+  background: transparent;
+  pointer-events: none;
+}
+.site-header--compact::before,
+.site-header--compact::after { display: none; content: none; }
+.site-header--compact > .desk-nav { display: none; }
+
+/* Other pages retain the logo on its sticky note, but lose the plain hamburger. */
+.site-header--inner {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  min-height: 99px;
+  background: #f8f2ea;
+  border-bottom: 1px solid rgba(121, 89, 65, .12);
+  overflow: visible;
+}
+.site-header--inner .desk-menu-toggle,
+.site-header--inner .desk-nav-bottom { display: none !important; }
+.site-header--inner .desk-nav-top { min-height: 70px; }
+
+.site-header--inner .paper-pocket,
+.site-header--compact .paper-pocket {
+  display: block;
+  position: absolute;
+  top: 12px;
+  right: clamp(12px, 3vw, 36px);
+  width: clamp(188px, 21vw, 235px);
+  max-width: calc(100vw - 24px);
+  padding: 7px 9px;
+  background:
+    radial-gradient(ellipse at 16% 18%, rgba(186,143,98,.13), transparent 60%),
+    repeating-linear-gradient(93deg, rgba(157,121,83,.024) 0 2px, transparent 2px 10px),
+    #f8edda;
+  border: 1px solid #bda58b;
+  border-radius: 3px 2px 6px 3px;
+  box-shadow: 2px 5px 0 rgba(94,63,43,.09), 1px 9px 20px rgba(67,45,28,.18);
+  transform: rotate(1.5deg);
+  pointer-events: auto;
+  isolation: isolate;
+  z-index: 600;
+}
+/* A little strip of translucent washi, rather than a generic floating panel. */
+.site-header .paper-pocket::before {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 12px;
+  background: rgba(226,194,150,.73);
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  z-index: 3;
+  pointer-events: none;
+}
+.site-header .paper-pocket__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+}
+.site-header .paper-pocket__home {
+  flex: 1;
+  min-width: 0;
+  min-height: 46px;
+  padding: 6px 8px;
+  border: 0;
+  background: transparent;
+  color: #583f33;
+  text-align: left;
+  font: 700 1.35rem/1.1 "Caveat", cursive;
+  text-decoration: none;
+  cursor: pointer;
+}
+.site-header .paper-pocket__home span { color: #8f5038; }
+.site-header .paper-pocket__toggle {
+  display: flex;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: #fffaf1;
+  border: 1.7px solid #86654e;
+  border-radius: 4px;
+  cursor: pointer;
+  transform: rotate(-2deg);
+  box-shadow: 2px 2px 0 rgba(77, 51, 33, .09);
+}
+/* Three uneven pen strokes, as if sketched quickly in dark ink. */
+.site-header .paper-pocket__stroke {
+  display: block;
+  width: 23px;
+  height: 2.5px;
+  background: #604339;
+  border-radius: 72% 24% 56% 30%;
+  transform-origin: center;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.site-header .paper-pocket__stroke:nth-child(1) { transform: rotate(-5deg) translateX(-1px); }
+.site-header .paper-pocket__stroke:nth-child(2) { width: 19px; transform: rotate(3deg) translateX(2px); }
+.site-header .paper-pocket__stroke:nth-child(3) { width: 22px; transform: rotate(-3deg); }
+.site-header .paper-pocket__toggle.is-open .paper-pocket__stroke:nth-child(1) { transform: translateY(7.5px) rotate(44deg); }
+.site-header .paper-pocket__toggle.is-open .paper-pocket__stroke:nth-child(2) { opacity: 0; }
+.site-header .paper-pocket__toggle.is-open .paper-pocket__stroke:nth-child(3) { transform: translateY(-7.5px) rotate(-44deg); }
+
+.site-header .paper-pocket__menu {
+  display: flex;
+  position: absolute;
+  right: -1px;
+  top: calc(100% + 7px);
+  width: min(315px, calc(100vw - 24px));
+  padding: 19px 17px 17px;
+  flex-direction: column;
+  gap: 4px;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 34px, rgba(123,157,142,.14) 35px, transparent 36px),
+    #fff8ed;
+  border: 1px solid #c5aa90;
+  box-shadow: 3px 9px 0 rgba(92,62,44,.07), 0 16px 38px rgba(48,35,28,.22);
+  border-radius: 2px 5px 8px 3px;
+  transform: rotate(-1.5deg);
+  z-index: 50;
+}
+.site-header .paper-pocket__label {
+  font: 1.35rem "Indie Flower", cursive;
+  color: #487056;
+  margin: 0 0 6px 6px;
+}
+.site-header .paper-pocket__menu a,
+.site-header .paper-pocket__menu .paper-pocket__back {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 8px 9px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px dashed rgba(127,98,71,.22);
+  text-align: left;
+  color: #49372e;
+  text-decoration: none;
+  font: 1.24rem/1.2 "Handlee", cursive;
+  cursor: pointer;
+}
+.site-header .paper-pocket__menu a:hover,
+.site-header .paper-pocket__menu a:focus-visible,
+.site-header .paper-pocket__menu .paper-pocket__back:hover { background: #e5ecdc; }
+.site-header .paper-pocket__menu .paper-pocket__back {
+  color: #3e644e;
+  font-weight: 700;
+  border-bottom: none;
+  margin-top: 5px;
+}
+.site-header .paper-pocket__menu a[aria-current="page"] { color: #a34b32; font-weight: 700; }
+.site-header .paper-pocket button:focus-visible,
+.site-header .paper-pocket a:focus-visible {
+  outline: 3px solid #285d50;
+  outline-offset: 3px;
+}
+@media (max-width: 820px) {
+  .site-header--inner { min-height: 90px; }
+  .site-header--inner .desk-nav { min-height: 76px; }
+  .site-header--inner .paper-pocket,
+  .site-header--compact .paper-pocket { top: 10px; right: 12px; width: 190px; }
+  .site-header .paper-pocket__home { font-size: 1.25rem; }
+}
+@media (max-width: 390px) {
+  .site-header--inner .desk-brand { width: 60px; }
+  .site-header--inner .paper-pocket,
+  .site-header--compact .paper-pocket { width: 178px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .paper-pocket__stroke { transition: none; }
+}
+@media print, (forced-colors: active) {
+  .site-header--compact .paper-pocket,
+  .site-header--inner .paper-pocket { background: Canvas; color: CanvasText; border: 2px solid CanvasText; }
+}

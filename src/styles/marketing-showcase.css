@@ -1,0 +1,636 @@
+/* ======================================
+   MARKETING / THE CAMPAIGN FILES
+   ====================================== */
+
+.mk-showcase {
+  --mk-ink: #49382f;
+  --mk-green: #44624d;
+  --mk-rust: #a7472e;
+  --mk-paper: #fffaf0;
+
+  position: relative;
+  overflow: clip;
+  padding: clamp(80px, 9vw, 145px) 0;
+
+  color: var(--mk-ink);
+
+  background:
+    radial-gradient(
+      ellipse at 85% 30%,
+      rgba(255, 246, 232, 0.65),
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      #f0e4d6 0%,
+      #ecd9ca 55%,
+      #eee0d4 100%
+    );
+}
+
+.mk-showcase *,
+.mk-showcase *::before,
+.mk-showcase *::after {
+  box-sizing: border-box;
+}
+
+.mk-container {
+  width: min(1320px, 90%);
+  margin: 0 auto;
+}
+
+/* HEADINGS */
+
+.mk-heading {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 110px;
+}
+
+.mk-eyebrow,
+.mk-label {
+  display: block;
+  color: var(--mk-green);
+  font-size: 0.77rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+}
+
+.mk-heading h2,
+.mk-copy h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.mk-heading h2 {
+  margin: 15px 0 0;
+  font-size: clamp(4rem, 8vw, 8.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+}
+
+.mk-heading h2 em {
+  color: var(--mk-rust);
+  font-weight: 500;
+}
+
+.mk-intro-note {
+  width: min(100%, 295px);
+  padding: 30px;
+  background: #e0eadb;
+  border: 1px solid #bccbb6;
+
+  box-shadow:
+    7px 10px 0 rgba(79, 91, 65, 0.09);
+
+  transform: rotate(4deg);
+}
+
+.mk-intro-note > span {
+  color: var(--mk-rust);
+  font-size: 2rem;
+}
+
+.mk-intro-note p {
+  margin: 12px 0 0;
+  color: #3f503f;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* PROJECT COMPOSITIONS */
+
+.mk-feature {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(35px, 7vw, 110px);
+  margin-bottom: clamp(110px, 13vw, 185px);
+}
+
+.mk-copy {
+  position: relative;
+  min-width: 0;
+}
+
+.mk-copy h3 {
+  margin: 15px 0 22px;
+  font-size: clamp(3.1rem, 5vw, 6rem);
+  line-height: 0.92;
+}
+
+.mk-copy > p {
+  max-width: 470px;
+  margin: 0;
+  color: #514237;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.mk-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 27px;
+}
+
+.mk-tags span {
+  padding: 9px 12px;
+  border: 1px solid #8a786a;
+  border-radius: 3px;
+  background: #fff9ec;
+  color: #49382f;
+  font-size: 0.77rem;
+  font-weight: 700;
+}
+
+/* ACTUAL CAMPAIGN IMAGE SUPPORT */
+
+.mk-real-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mk-image-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 180px;
+  height: 100%;
+  padding: 20px;
+  background:
+    linear-gradient(
+      145deg,
+      #f4e6d6,
+      #e8e9d9
+    );
+  text-align: center;
+}
+
+.mk-image-placeholder > span {
+  color: #ae7258;
+  font-size: 3rem;
+}
+
+.mk-image-placeholder p {
+  max-width: 200px;
+  margin: 10px 0;
+  color: #654938;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.3rem, 2vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.mk-image-placeholder small {
+  color: #665548;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* PET PARADISE */
+
+.mk-pet-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 640px;
+  isolation: isolate;
+}
+
+.mk-phone {
+  position: relative;
+  z-index: 2;
+  width: clamp(215px, 24vw, 300px);
+  padding: 13px 11px 17px;
+  border: 9px solid #566f5d;
+  border-radius: 43px;
+  background: #d9e5d8;
+
+  box-shadow:
+    15px 20px 0 rgba(68, 91, 75, 0.12),
+    22px 32px 35px rgba(54, 40, 27, 0.17);
+
+  transform: rotate(-7deg);
+}
+
+.mk-phone-top {
+  width: 80px;
+  height: 11px;
+  margin: 0 auto 12px;
+  border-radius: 999px;
+  background: #4a6151;
+}
+
+.mk-phone-screen {
+  height: 480px;
+  overflow: hidden;
+  border-radius: 23px;
+  background: #fffaf0;
+}
+
+.mk-pet-print {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 40px;
+  width: 49%;
+  max-width: 280px;
+  padding: 10px 10px 23px;
+  background: #fffaf0;
+
+  box-shadow:
+    10px 15px 28px rgba(65, 44, 29, 0.16);
+
+  transform: rotate(9deg);
+}
+
+.mk-print-media {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.mk-print-caption {
+  display: block;
+  margin-top: 16px;
+  color: #80523d;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.mk-visual-sparkle {
+  position: absolute;
+  top: 7%;
+  right: 16%;
+  color: #a95c40;
+  font-size: 4rem;
+}
+
+.mk-handwritten {
+  display: block;
+  margin-top: 42px;
+  color: #8b5540;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.6rem;
+  font-style: italic;
+  transform: rotate(-4deg);
+}
+
+/* VGLOBALTECH */
+
+.mk-vgt-visual {
+  position: relative;
+  padding: 30px 0;
+}
+
+.mk-campaign-board {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d1bfae;
+  background: #fffaf2;
+  box-shadow:
+    13px 18px 33px rgba(61, 43, 30, 0.15);
+  transform: rotate(3deg);
+}
+
+.mk-campaign-board::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: -1px;
+  left: 45%;
+  width: 75px;
+  height: 20px;
+  background: rgba(210, 170, 129, 0.6);
+  transform: rotate(-5deg);
+}
+
+.mk-campaign-board-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e6dacf;
+  color: #55705b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.mk-campaign-board-top span {
+  color: #af694c;
+  font-size: 1.5rem;
+}
+
+.mk-campaign-content {
+  min-height: 370px;
+  padding: 20px;
+  background: #f6eee7;
+}
+
+.mk-campaign-board-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 20px;
+  color: #645244;
+  font-size: 0.71rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.mk-vgt-sticker {
+  position: absolute;
+  right: -10px;
+  bottom: 0;
+  padding: 15px 20px;
+  border: 1px solid #b8c5ad;
+  background: #e0eadb;
+  color: #45634c;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  transform: rotate(-8deg);
+}
+
+/* YOGA2ME */
+
+.mk-yoga-visual {
+  position: relative;
+  padding: 30px 0 50px;
+}
+
+.mk-tablet {
+  position: relative;
+  width: min(100%, 550px);
+  padding: 21px;
+  border: 11px solid #657c69;
+  border-radius: 34px;
+  background: #b9c9b7;
+  box-shadow:
+    17px 23px 0 rgba(82, 111, 91, 0.12),
+    23px 33px 36px rgba(61, 43, 30, 0.16);
+  transform: rotate(-5deg);
+}
+
+.mk-tablet-screen {
+  min-height: 315px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fffaf0;
+}
+
+.mk-tablet-camera {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #526657;
+  transform: translateY(-50%);
+}
+
+.mk-yoga-flower {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  color: #af7050;
+  font-size: 6rem;
+}
+
+.mk-closing-note {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #744b37;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-style: italic;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* RESPONSIVE LAYOUTS */
+
+@media (max-width: 950px) {
+  .mk-heading {
+    grid-template-columns: 1fr;
+    margin-bottom: 75px;
+  }
+
+  .mk-intro-note {
+    max-width: 400px;
+  }
+
+  .mk-feature {
+    gap: 45px;
+  }
+
+  .mk-pet-visual {
+    min-height: 540px;
+  }
+
+  .mk-phone-screen {
+    height: 395px;
+  }
+}
+
+@media (max-width: 760px) {
+  .mk-container {
+    width: 88%;
+  }
+
+  .mk-feature {
+    grid-template-columns: 1fr;
+    margin-bottom: 100px;
+  }
+
+  .mk-vgt-copy {
+    order: 2;
+  }
+
+  .mk-vgt-visual {
+    order: 1;
+  }
+
+  .mk-pet-visual {
+    justify-content: center;
+  }
+
+  .mk-pet-print {
+    right: 0;
+  }
+
+  .mk-heading h2 {
+    font-size: clamp(3.8rem, 12vw, 6rem);
+  }
+
+  .mk-copy h3 {
+    font-size: clamp(3rem, 10vw, 5rem);
+  }
+
+  .mk-intro-note,
+  .mk-phone,
+  .mk-pet-print,
+  .mk-campaign-board,
+  .mk-tablet,
+  .mk-handwritten {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .mk-pet-visual {
+    min-height: 520px;
+  }
+
+  .mk-phone {
+    width: min(72%, 275px);
+  }
+
+  .mk-pet-print {
+    width: 45%;
+    right: -4%;
+    bottom: 10px;
+  }
+
+  .mk-phone-screen {
+    height: 360px;
+  }
+
+  .mk-campaign-content {
+    min-height: 260px;
+    padding: 12px;
+  }
+
+  .mk-tablet {
+    padding: 12px;
+    border-width: 7px;
+    border-radius: 22px;
+  }
+
+  .mk-tablet-screen {
+    min-height: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mk-showcase *,
+  .mk-showcase *::before,
+  .mk-showcase *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .mk-handwritten,
+  .mk-intro-note {
+    transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .mk-intro-note,
+  .mk-phone,
+  .mk-pet-print,
+  .mk-campaign-board,
+  .mk-tablet,
+  .mk-tags span {
+    border: 2px solid CanvasText;
+  }
+}
+/* Additional campaign proofs: printed, tactile, and easy to browse. */
+.mk-proof-gallery { margin: clamp(56px,8vw,100px) auto 80px; }
+.mk-proof-group { margin: 25px 0 56px; }
+.mk-proof-group h3 {
+  font-family: "Handlee", cursive;
+  color: #506651;
+  font-size: clamp(1.2rem,2vw,1.65rem);
+  margin: 0 0 22px;
+  letter-spacing: .04em;
+}
+.mk-proof-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: clamp(12px,2.5vw,30px); }
+.mk-proof { display: block; min-width: 0; padding: 12px 12px 15px; background: #fffaf1; border: 1px solid #e0cebd; box-shadow: 4px 7px 0 rgba(100,70,50,.09); color: #49382f; text-decoration: none; transform: rotate(-1deg); transition: transform .25s ease, box-shadow .25s ease; }
+.mk-proof:nth-child(even) { transform: rotate(1.2deg); }
+.mk-proof img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: contain; background: #f4eee5; }
+.mk-proof > span { display: block; margin-top: 12px; font-family: "Handlee", cursive; line-height: 1.25; font-size: clamp(.92rem,1.2vw,1.12rem); }
+.mk-proof:hover { transform: translateY(-7px) rotate(0); box-shadow: 8px 12px 0 rgba(100,70,50,.12); }
+.mk-proof:focus-visible { outline: 3px solid #3d7052; outline-offset: 5px; }
+@media (max-width: 900px) { .mk-proof-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 440px) { .mk-proof-grid { gap: 12px; } .mk-proof { padding: 8px; } }
+@media (prefers-reduced-motion: reduce) { .mk-proof { transition: none; } }
+
+/* PET PARADISE: REAL LOOPING REELS */
+.mk-reel-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: inherit;
+  object-fit: cover;
+  background: #283b32;
+}
+.mk-phone-screen .mk-reel-video { object-fit: cover; }
+.mk-reels-section {
+  max-width: 960px;
+  margin: clamp(-60px, -4vw, -18px) auto clamp(90px, 12vw, 160px);
+}
+.mk-reels-heading { margin: 0 0 22px; }
+.mk-reels-heading h3 {
+  margin: 0;
+  font-family: "Caveat", cursive;
+  color: var(--mk-green);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.1;
+}
+.mk-reels-heading p {
+  margin: 4px 0 0;
+  font-family: "Handlee", cursive;
+  color: var(--mk-ink);
+}
+.mk-reels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 4vw, 42px);
+  align-items: start;
+  justify-items: center;
+}
+.mk-reel-card {
+  width: min(100%, 255px);
+  min-width: 0;
+  margin: 0;
+  padding: 11px 11px 18px;
+  background: #fffaf0;
+  border: 1px solid #e0ccba;
+  box-shadow: 7px 10px 0 rgba(65, 44, 29, .09);
+}
+.mk-reel-card:nth-child(1) { transform: rotate(-2deg); }
+.mk-reel-card:nth-child(2) { transform: rotate(2deg); }
+.mk-reel-card .mk-reel-video { width: 100%; height: auto; aspect-ratio: 9 / 16; }
+.mk-reel-card figcaption {
+  margin: 11px 3px 0;
+  font-family: "Handlee", cursive;
+  font-size: clamp(.93rem, 1.3vw, 1.15rem);
+  line-height: 1.35;
+  color: var(--mk-ink);
+}
+@media (max-width: 760px) {
+  .mk-reels-section { margin-top: -30px; }
+  .mk-reel-card { transform: none !important; }
+  .mk-reels-grid { gap: 14px; }
+  .mk-reel-card { padding: 7px 7px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mk-reel-card { transform: none; }
+}

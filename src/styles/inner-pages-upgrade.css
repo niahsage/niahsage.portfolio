@@ -1,0 +1,92 @@
+@import url('./inner-page-polish.css');
+/* NEW INTERNAL PAGE CHAPTERS. Scoped so the approved homepage stays untouched. */
+/* WEB / CASE FILES */
+.work-page .work-hero {padding:clamp(115px,10vw,165px) 0 clamp(65px,8vw,108px);}
+.work-page .work-hero::before,.artwork-page .art-hero::before {content:"";position:absolute;inset:80px -18px 35px -18px;background:repeating-linear-gradient(178deg,transparent 0 34px,rgba(82,115,100,.09) 35px,transparent 36px),#fffaf1;box-shadow:10px 14px 0 rgba(112,86,62,.08),0 20px 38px rgba(91,73,52,.1);border:1px solid #e6d5bf;transform:rotate(-.65deg);z-index:-1;pointer-events:none;}
+.work-page .work-hero h1,.artwork-page .art-hero h1 {font:700 clamp(3.9rem,8.6vw,8.8rem)/.95 'Caveat',cursive;letter-spacing:-.015em;}
+.work-page .work-hero h1 em,.artwork-page .art-hero h1 em {font-style:normal;color:#b5563d;}
+.work-page .work-hero>p:last-child,.artwork-page .art-hero>p:last-child {max-width:700px;color:#57463d;font:1.24rem/1.57 'Handlee',sans-serif;}
+.work-page .work-hero .work-sun {font-size:clamp(3rem,7vw,7rem);top:100px;right:6%;animation:none;}
+.work-page .work-project .project-copy h2 {font:700 clamp(3rem,5.4vw,5.2rem)/1 'Caveat',cursive;}
+.work-page .work-project .project-copy p {font-family:'Handlee',sans-serif;}
+.work-page .project-image {cursor:zoom-in;color:inherit;border:1px solid #ddd0bd;padding:0;border-radius:6px;background:#fff9ef;min-height:0;}
+.work-page .project-image img {min-height:0;height:clamp(290px,31vw,480px);object-fit:contain;padding:18px;}
+.work-page .project-image::after,.artwork-page .niah-art-open::after {content:"";position:absolute;top:-11px;left:calc(50% - 50px);width:100px;height:22px;background:rgba(226,197,151,.72);transform:rotate(-3deg);pointer-events:none;z-index:3;}
+.niah-project-preview__label,.niah-art-open__hint {display:block;position:absolute;right:12px;bottom:13px;background:#fff9e9;border:1px solid #dbc3a4;transform:rotate(2deg);padding:6px 10px;color:#874732;font:700 1.12rem 'Caveat',cursive;z-index:2;box-shadow:2px 3px 0 rgba(100,70,40,.10);}
+.work-page .work-showcase.is-filtered .work-project {grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+.work-page .work-showcase.is-filtered .project-image,.work-page .work-showcase.is-filtered .work-project.reverse .project-image {order:0;transform:rotate(-1deg);width:100%;justify-self:stretch;}
+.work-page .work-showcase.is-filtered .project-copy,.work-page .work-showcase.is-filtered .work-project.reverse .project-copy {order:0;margin-left:0;}
+.work-page .work-cta,.artwork-page .art-cta {width:min(1140px,calc(100% - 38px));margin:75px auto 0;padding:clamp(30px,5vw,60px);background:#e4e9db;border:1px solid #acbca6;box-shadow:8px 9px 0 #d0d9cb;transform:rotate(.45deg);}
+.work-page .work-cta h2,.artwork-page .art-cta h2 {font:700 clamp(3rem,6vw,5.5rem)/.95 'Caveat',cursive;}
+.work-page .work-cta a,.artwork-page .art-cta a {font:700 1.3rem 'Handlee',sans-serif;text-decoration:underline;text-underline-offset:5px;}
+/* ART / THE ACTUAL ORIGINALS, NO CROPPING */
+.artwork-page .art-hero {padding:clamp(115px,10vw,165px) 0 clamp(70px,8vw,110px);}
+.artwork-page .art-gallery.is-filtered {grid-template-columns:repeat(3,minmax(0,1fr));gap:80px 24px;}
+.artwork-page .art-gallery.is-filtered .art-piece {grid-column:auto;transform:none;}
+.artwork-page .art-image-wrap {position:relative;width:100%;cursor:zoom-in;border:0;color:inherit;padding:24px;background:#fff9ef;border-radius:4px;}
+.artwork-page .art-image-wrap img {object-fit:contain;}
+.artwork-page .art-image-wrap:hover {box-shadow:0 26px 54px rgba(54,42,34,.2);}
+.artwork-page .art-piece .art-copy h2 {font:700 clamp(2.5rem,4vw,4rem)/1 'Caveat',cursive;}
+.artwork-page .art-gallery.is-filtered::before {display:none;}
+/* MARKETING / CUSTOM COVER BEFORE EXISTING VIDEO AND CAMPAIGN ARCHIVE */
+.niah-marketing-page {background:#f5ebe0;}
+.niah-marketing-cover {position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:clamp(10px,3vw,50px);align-items:center;padding:clamp(60px,7vw,95px) clamp(20px,6vw,100px) clamp(75px,7vw,120px);background:radial-gradient(circle at 87% 2%,rgba(201,217,190,.5),transparent 45%),#f5ebe0;min-height:600px;}
+.niah-marketing-cover::after {content:"";position:absolute;bottom:-1px;left:0;width:100%;height:32px;background:repeating-linear-gradient(110deg,transparent 0 26px,rgba(255,250,240,.35) 27px 28px),#e7d8c3;clip-path:polygon(0 55%,5% 73%,13% 37%,20% 60%,28% 28%,36% 58%,45% 25%,56% 62%,65% 32%,74% 67%,85% 30%,94% 58%,100% 42%,100% 100%,0 100%);pointer-events:none;}
+.niah-marketing-cover__copy {position:relative;z-index:2;}
+.niah-marketing-cover h1 {margin:20px 0;font:700 clamp(4rem,8vw,8.4rem)/.88 'Caveat',cursive;color:#4a372f;}
+.niah-marketing-cover h1 em {color:#b3553b;font-style:normal;}
+.niah-marketing-cover__copy > p {max-width:590px;font:1.3rem/1.6 'Handlee',sans-serif;color:#5e4c3c;}
+.niah-marketing-cover__jump {display:flex;flex-wrap:wrap;gap:11px;margin-top:35px;}
+.niah-marketing-cover__jump button {min-height:46px;border:1px solid #b9a387;background:#fff6e6;color:#4a392f;padding:11px 14px;box-shadow:2px 4px 0 rgba(86,59,36,.14);cursor:pointer;font:700 1.1rem 'Handlee',sans-serif;transition:transform .2s;}
+.niah-marketing-cover__jump button:hover {transform:translateY(-4px) rotate(-1deg);}
+.niah-marketing-cover__jump button:focus-visible {outline:3px solid #28654a;outline-offset:3px;}
+.niah-marketing-cover__collage {height:clamp(390px,38vw,570px);position:relative;min-width:0;}
+.niah-marketing-cover__photo {position:absolute;width:min(57%,250px);height:65%;padding:10px 10px 31px;background:#fffaf1;box-shadow:0 17px 25px rgba(59,47,36,.22);border:1px solid #dac8af;}
+.niah-marketing-cover__photo::before {content:"";position:absolute;top:-10px;left:calc(50% - 32px);height:21px;width:64px;background:rgba(226,202,157,.78);}
+.niah-marketing-cover__photo img {width:100%;height:100%;object-fit:contain;}
+.niah-marketing-cover__photo--first {top:7%;left:5%;transform:rotate(-11deg);z-index:2;}
+.niah-marketing-cover__photo--second {top:19%;left:39%;transform:rotate(9deg);z-index:3;}
+.niah-marketing-cover__photo--third {top:40%;left:13%;transform:rotate(2deg);z-index:4;height:53%;}
+.niah-marketing-cover__handnote {position:absolute;right:0;bottom:2%;transform:rotate(-8deg);color:#a4523e;font:700 clamp(1.5rem,2.8vw,2.6rem)/1 'Caveat',cursive;z-index:5;}
+.niah-marketing-page .mk-feature,.niah-marketing-page .mk-archive,.niah-marketing-page .niah-email-case {scroll-margin-top:125px;}
+/* ABOUT / NOTES THAT MATCH THE PHOTO STACK */
+.about-page .about-hero-page {padding:clamp(110px,11vw,160px) 0 clamp(72px,9vw,125px);}
+.about-page .about-intro {padding:25px 12px 25px 30px;border-left:6px solid #91aa8c;}
+.about-page .about-intro h1 {font:700 clamp(4.2rem,8vw,8.3rem)/.9 'Caveat',cursive;}
+.about-page .about-intro h1 em {font-style:normal;color:#ac533b;}
+.about-page .about-intro p {font:1.16rem/1.65 'Handlee',sans-serif;}
+.about-page .about-btn {border-radius:3px;font:700 1.1rem 'Handlee',sans-serif;padding:14px 23px;background:#f4e7bc;box-shadow:3px 4px 0 #dec9a4;}
+.about-page .about-btn.secondary {border-color:#9bae93;background:#e1eadb;transform:rotate(1.5deg);}
+.about-page .about-photo-wrap::before {border-radius:8px;background:repeating-linear-gradient(45deg,rgba(137,107,70,.09) 0 3px,transparent 4px 9px),#ddc8a4;border:8px solid #a57c57;width:min(100%,610px);height:min(95%,610px);transform:rotate(3deg);}
+.niah-about-souvenirs {width:min(1200px,calc(100% - 35px));margin:60px auto 130px;}
+.niah-about-souvenirs__title {max-width:640px;margin-bottom:28px;}
+.niah-about-souvenirs h2 {font:700 clamp(3.6rem,6vw,6rem)/1 'Caveat',cursive;margin:10px 0;}
+.niah-about-souvenirs h2 em {color:#a8523e;font-style:normal;}
+.niah-about-souvenirs__title>p {font:1.2rem/1.5 'Handlee',sans-serif;}
+.niah-about-souvenirs__notes {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.niah-about-souvenirs__notes a {position:relative;display:flex;flex-direction:column;gap:10px;min-height:225px;padding:30px 23px;background:#f9e9d6;border:1px solid #d8bfa5;box-shadow:4px 7px 0 rgba(96,70,46,.10);transform:rotate(-1.8deg);transition:transform .2s;}
+.niah-about-souvenirs__notes a:nth-child(2) {background:#e1eadc;transform:rotate(1deg);border-color:#c4d0c0;}
+.niah-about-souvenirs__notes a:nth-child(3) {background:#f3e5bc;transform:rotate(-.6deg);border-color:#dacba2;}
+.niah-about-souvenirs__notes a::before {content:"";position:absolute;top:-10px;left:calc(50% - 34px);height:19px;width:68px;background:rgba(222,197,150,.83);}
+.niah-about-souvenirs__notes a:hover {transform:translateY(-6px) rotate(0);}
+.niah-about-souvenirs__notes a>span {color:#a6503b;font:2rem 'Caveat',cursive;}
+.niah-about-souvenirs__notes a strong {font:700 2.4rem/1 'Caveat',cursive;}
+.niah-about-souvenirs__notes a small {font:1.1rem/1.5 'Handlee',sans-serif;}
+.niah-about-souvenirs__notes a b {margin-top:auto;font:700 1rem 'Handlee',sans-serif;color:#43644e;}
+/* CONTACT / PICK A TOPIC TO UNFOLD THE REAL EMAIL LETTER */
+.mail-page .mail-intro {padding:24px 26px 28px;background:#fff9ef;border:1px solid #e1d4bf;box-shadow:5px 6px 0 rgba(115,86,55,.1);transform:rotate(-.5deg);max-width:940px;}
+.niah-contact-starters {margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.niah-contact-starters>span {flex-basis:100%;font:700 .98rem 'Handlee',sans-serif;color:#476e52;}
+.niah-contact-starters button {min-height:45px;background:#e6efdf;border:1px solid #a5b79b;box-shadow:2px 4px 0 rgba(83,105,69,.15);cursor:pointer;padding:8px 12px;color:#4e4438;font:700 1.04rem/1.2 'Handlee',sans-serif;}
+.niah-contact-starters button:nth-child(3) {background:#f8e3d8;border-color:#d1b4a5;}
+.niah-contact-starters button:nth-child(4) {background:#f5e9c5;border-color:#cfc3a4;}
+.niah-contact-starters button:hover {transform:translateY(-3px);}
+.niah-contact-starters button:focus-visible {outline:3px solid #28654a;outline-offset:3px;}
+@media(max-width:950px){.niah-marketing-cover{grid-template-columns:1fr;gap:12px;}.niah-marketing-cover__collage{width:min(600px,90vw);height:350px;margin:auto;}.niah-marketing-cover__photo{height:74%;}.work-page .work-showcase.is-filtered .work-project {grid-template-columns:1fr;}.artwork-page .art-gallery.is-filtered{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:700px){.work-page .work-hero::before,.artwork-page .art-hero::before{inset:70px -8px 16px -8px;}.work-page .work-hero,.artwork-page .art-hero{padding-top:112px;}.niah-marketing-cover{padding:58px 18px 75px;}.niah-marketing-cover__collage{height:280px;}.niah-marketing-cover__photo{width:45%;height:80%;}.niah-marketing-cover__photo--third{height:65%;}.artwork-page .art-gallery.is-filtered{grid-template-columns:1fr;gap:70px;}.artwork-page .art-gallery.is-filtered .art-piece{grid-column:auto;transform:none;}.niah-about-souvenirs__notes{grid-template-columns:1fr;}.about-page .about-intro{padding-left:17px;}.mail-page .mail-intro{transform:none;padding:18px 14px;}}
+@media(prefers-reduced-motion:reduce){.niah-marketing-cover__jump button,.niah-about-souvenirs__notes a{transition:none;}.niah-marketing-cover__jump button:hover,.niah-about-souvenirs__notes a:hover{transform:none;}}
+@media(forced-colors:active){.niah-marketing-cover__photo,.niah-about-souvenirs__notes a,.mail-page .mail-intro{border:2px solid CanvasText;}}
+
+/* Filtered gallery uses compact rows even below the original gallery breakpoint. */
+.artwork-page .art-gallery.is-filtered .art-piece {margin-bottom:0;}
+.work-page .work-hero,.artwork-page .art-hero {isolation:isolate;}

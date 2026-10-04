@@ -315,3 +315,6 @@
     padding: 62px 28px;
   }
 }
+/* Extend the existing asymmetrical gallery for newly added artwork. */
+.art-gallery .art-piece:nth-child(n + 11) { grid-column: span 6; }
+@media (max-width: 780px) { .art-gallery .art-piece:nth-child(n + 11) { grid-column: 1 / -1; } }

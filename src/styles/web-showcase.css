@@ -1,0 +1,742 @@
+/* ==========================================
+   NIAH'S CREATIVE DESK
+   WEB & UI/UX SHOWCASE
+   ========================================== */
+
+.web-showcase {
+  --web-ink: #48382f;
+  --web-rust: #a44830;
+  --web-green: #45644f;
+  --web-paper: #fffaf0;
+
+  position: relative;
+  isolation: isolate;
+  padding: clamp(75px, 9vw, 140px) 0;
+  color: var(--web-ink);
+
+  background:
+    radial-gradient(
+      ellipse at 95% 12%,
+      rgba(242, 215, 191, 0.6),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 5% 70%,
+      rgba(192, 210, 185, 0.34),
+      transparent 45%
+    ),
+    #f0e4d6;
+}
+
+.web-showcase *,
+.web-showcase *::before,
+.web-showcase *::after {
+  box-sizing: border-box;
+}
+
+.web-scroll-anchor {
+  position: absolute;
+  top: 0;
+}
+
+.web-showcase-inner {
+  width: min(1300px, 90%);
+  margin: auto;
+}
+
+/* INTRO */
+
+.web-showcase-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 85px;
+}
+
+.web-showcase-eyebrow,
+.web-note-label,
+.web-sheet-category {
+  margin: 0 0 13px;
+  color: var(--web-green);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+}
+
+.web-showcase h2,
+.web-showcase h3,
+.web-showcase h4 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.web-showcase h2 {
+  margin: 0;
+  font-size: clamp(4rem, 8vw, 8.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+
+.web-showcase h2 em {
+  color: var(--web-rust);
+  font-weight: 500;
+}
+
+.web-showcase-intro {
+  max-width: 350px;
+  margin: 0;
+  color: #514238;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* SHARED PROJECT LAYOUT */
+
+.web-feature {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 85px);
+  margin-bottom: 140px;
+}
+
+.web-project-note,
+.web-mobile-note {
+  position: relative;
+  min-width: 0;
+  padding: clamp(26px, 3.5vw, 50px);
+  background: var(--web-paper);
+  border: 1px solid #d8c1a9;
+  box-shadow: 12px 15px 30px rgba(80, 52, 32, 0.12);
+}
+
+.web-project-note {
+  transform: rotate(3deg);
+}
+
+/* A little piece of translucent tape */
+
+.web-project-note::before,
+.web-mobile-note::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 38%;
+  width: 75px;
+  height: 25px;
+  background: rgba(218, 185, 137, 0.57);
+  transform: rotate(-8deg);
+}
+
+.web-project-note h3,
+.web-mobile-note h3 {
+  margin: 5px 0 15px;
+  font-size: clamp(2.8rem, 4vw, 4.5rem);
+  line-height: 0.95;
+}
+
+.web-project-note > p:not(.web-note-label),
+.web-mobile-note > p:not(.web-note-label) {
+  color: #534438;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.web-project-link {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  margin-top: 15px;
+
+  color: #87402a;
+  font-weight: 800;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.web-new-tab {
+  color: #58483e;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+/* ASTROLOVE BROWSER */
+
+.web-browser {
+  min-width: 0;
+  overflow: hidden;
+  border: 9px solid #536e5d;
+  border-radius: 18px;
+  background: #fdf8f4;
+
+  box-shadow:
+    14px 18px 0 rgba(83, 110, 93, 0.12),
+    20px 30px 45px rgba(71, 46, 31, 0.17);
+
+  transform: rotate(-2deg);
+}
+
+.web-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 42px;
+  padding: 10px 15px;
+  background: #dce7d8;
+}
+
+.web-browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.web-browser-dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #a35f46;
+}
+
+.web-browser-address {
+  flex: 1;
+  padding: 5px 12px;
+  border-radius: 5px;
+  background: #fffaf2;
+  color: #46604e;
+  font-size: 0.73rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.web-browser-screen {
+  display: grid;
+  place-items: center;
+  min-height: 350px;
+  padding: clamp(14px, 3vw, 35px);
+  background: #e6dff0;
+}
+
+.web-browser-screen img {
+  display: block;
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+/* REACT NATIVE PROJECT */
+
+.web-feature-mobile {
+  grid-template-columns: 0.9fr 1.1fr;
+  margin-bottom: 135px;
+}
+
+.web-mobile-note {
+  transform: rotate(-3deg);
+}
+
+.web-phone-display {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+  min-width: 0;
+}
+
+.web-phone-frame {
+  position: relative;
+  width: min(100%, 290px);
+  padding: 14px 10px;
+  border: 9px solid #4d6254;
+  border-radius: 40px;
+  background: #e1e9dc;
+
+  box-shadow:
+    18px 22px 0 rgba(77, 98, 84, 0.13),
+    25px 32px 45px rgba(68, 47, 31, 0.17);
+
+  transform: rotate(7deg);
+}
+
+.web-phone-camera {
+  display: block;
+  width: 70px;
+  height: 9px;
+  margin: 0 auto 12px;
+  border-radius: 999px;
+  background: #4d6254;
+}
+
+.web-phone-screen {
+  display: grid;
+  place-items: center;
+  min-height: 375px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #fff9f2;
+}
+
+.web-phone-screen img {
+  display: block;
+  width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+}
+
+.web-phone-caption {
+  color: #784832;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.6rem;
+  font-style: italic;
+  transform: rotate(-6deg);
+}
+
+/* IN PROGRESS */
+
+.web-progress-heading {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 35px;
+}
+
+.web-progress-heading > span {
+  color: var(--web-rust);
+  font-size: 2.5rem;
+}
+
+.web-progress-heading h3 {
+  margin: 0;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1;
+}
+
+.web-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(25px, 5vw, 70px);
+  align-items: start;
+  margin-bottom: 115px;
+}
+
+.web-progress-sheet {
+  position: relative;
+  min-width: 0;
+  min-height: 385px;
+  padding: clamp(28px, 4vw, 52px);
+  border: 1px solid #cbb7a4;
+  background: #fff9ed;
+  box-shadow: 10px 16px 27px rgba(70, 45, 29, 0.12);
+}
+
+.wild-sheet {
+  background: #e4ebd9;
+  transform: rotate(-3deg);
+}
+
+.adventure-sheet {
+  background: #f4dfcf;
+  transform: rotate(3deg) translateY(25px);
+}
+
+.web-paper-clip {
+  position: absolute;
+  top: -24px;
+  left: 35px;
+  color: #875d44;
+  font-size: 2.4rem;
+}
+
+.web-progress-status {
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 7px 13px;
+  border: 1px solid #526a55;
+  border-radius: 3px;
+  background: #fffaf2;
+  color: #355441;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.web-progress-sheet h4 {
+  margin: 0 0 18px;
+  font-size: clamp(2.8rem, 4vw, 4.3rem);
+  line-height: 0.98;
+}
+
+.web-progress-sheet > p:not(.web-sheet-category) {
+  max-width: 440px;
+  margin: 0;
+  color: #4e4136;
+  line-height: 1.75;
+}
+
+.web-sheet-drawing,
+.web-sheet-route {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  margin-top: 25px;
+  color: #55715b;
+  font-family: Georgia, serif;
+  font-size: 2.6rem;
+}
+
+.web-sheet-route {
+  color: #a25d44;
+  font-size: 2rem;
+}
+
+/* WORDPRESS PROJECT NOTE */
+
+.web-wordpress {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+  padding: clamp(26px, 4vw, 50px);
+  border: 1px solid #d6c3af;
+  background: #fffaf2;
+  box-shadow: 7px 10px 24px rgba(70, 45, 29, 0.08);
+}
+
+.web-wordpress-symbol {
+  display: grid;
+  place-items: center;
+  width: 85px;
+  height: 85px;
+  border: 2px solid #526d58;
+  border-radius: 50%;
+  color: #526d58;
+  font-family: Georgia, serif;
+  font-size: 3rem;
+}
+
+.web-wordpress h3 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 3vw, 3.1rem);
+}
+
+.web-wordpress p:last-child {
+  max-width: 700px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.web-wordpress-stamp {
+  color: #88543b;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.55rem;
+  font-style: italic;
+  white-space: nowrap;
+  transform: rotate(-8deg);
+}
+
+/* ACCESSIBILITY */
+
+.web-showcase a:focus-visible {
+  outline: 4px solid #245d50;
+  outline-offset: 6px;
+  border-radius: 3px;
+}
+
+@media (max-width: 900px) {
+  .web-showcase-heading {
+    align-items: start;
+    flex-direction: column;
+    margin-bottom: 55px;
+  }
+
+  .web-feature,
+  .web-feature-mobile {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 95px;
+  }
+
+  .web-progress-grid {
+    gap: 30px;
+  }
+
+  .web-wordpress {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .web-wordpress-stamp {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .web-showcase-inner {
+    width: 88%;
+  }
+
+  .web-showcase h2 {
+    font-size: clamp(3.4rem, 12vw, 5rem);
+  }
+
+  .web-browser,
+  .web-project-note,
+  .web-mobile-note,
+  .web-phone-frame,
+  .wild-sheet,
+  .adventure-sheet {
+    transform: none;
+  }
+
+  .web-browser-screen {
+    min-height: 230px;
+  }
+
+  .web-browser-screen img {
+    max-height: 310px;
+  }
+
+  .web-progress-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .web-progress-sheet {
+    min-height: 0;
+  }
+
+  .web-wordpress {
+    grid-template-columns: 1fr;
+  }
+
+  .web-wordpress-symbol {
+    width: 65px;
+    height: 65px;
+    font-size: 2.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .web-showcase *,
+  .web-showcase *::before,
+  .web-showcase *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .web-project-note,
+  .web-mobile-note,
+  .web-progress-sheet,
+  .web-wordpress,
+  .web-browser,
+  .web-phone-frame {
+    border: 2px solid CanvasText;
+  }
+
+  .web-progress-status {
+    border: 1px solid CanvasText;
+  }
+}
+/* The featured projects now show the original portfolio first, then AstroLove. */
+.web-feature-alternate {
+  grid-template-columns: minmax(0,.68fr) minmax(0,1.32fr);
+}
+.web-feature-alternate .web-browser { transform: rotate(2deg); }
+.web-browser-screen-portfolio { background: #efe4d4; }
+@media (max-width: 850px) {
+  .web-feature-alternate { grid-template-columns: minmax(0,1fr); }
+  .web-feature-alternate .web-mobile-note { order: 2; }
+  .web-feature-alternate .web-browser { order: 1; transform: rotate(0deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .web-feature-alternate .web-browser { transition: none; }
+}
+
+/* ==========================================
+   INTERACTIVE PROJECT PREVIEWS
+   Accessible, zoomable scrapbook windows
+   ========================================== */
+
+.web-preview-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.web-preview-trigger img {
+  display: block;
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.web-preview-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: calc(100% - 20px);
+  padding: 8px 11px;
+  border: 1px solid rgba(73, 57, 44, 0.3);
+  border-radius: 2px;
+  background: #fff8e8;
+  color: #513f32;
+  box-shadow: 2px 3px 0 rgba(67, 48, 35, 0.13);
+  font-family: "Handlee", sans-serif;
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  line-height: 1.3;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.web-preview-hint span {
+  font-size: 1.2em;
+}
+
+@media (hover: hover) {
+  .web-preview-trigger:hover .web-preview-hint {
+    transform: translate(-3px, -4px) rotate(-2deg);
+    box-shadow: 5px 6px 0 rgba(67, 48, 35, 0.14);
+  }
+}
+
+.web-preview-trigger:focus-visible,
+.web-preview-close:focus-visible {
+  outline: 3px solid #245d50;
+  outline-offset: 5px;
+}
+
+/* Native dialog enters the browser top layer, above the desk and notes. */
+.web-preview-dialog {
+  width: min(94vw, 1020px);
+  max-width: 1020px;
+  max-height: min(92dvh, 940px);
+  margin: auto;
+  padding: clamp(10px, 2vw, 22px);
+  overflow: auto;
+  border: 0;
+  border-radius: 2px;
+  background: #f3e3ce;
+  color: #46372e;
+  box-shadow: 0 20px 80px rgba(18, 22, 18, 0.34);
+}
+
+.web-preview-dialog::backdrop {
+  background: rgba(26, 31, 26, 0.76);
+  backdrop-filter: blur(4px);
+}
+
+.web-preview-dialog[open] {
+  animation: web-preview-appear 250ms cubic-bezier(.2,.75,.2,1) both;
+}
+
+.web-preview-paper {
+  padding: clamp(14px, 3vw, 32px);
+  border: 1px solid #c4ad90;
+  background: #fffaf0;
+  box-shadow: 0 1px 0 rgba(66, 43, 28, 0.12);
+}
+
+.web-preview-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.web-preview-kicker {
+  color: #42614c;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+}
+
+.web-preview-header h3 {
+  margin: 3px 0 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+}
+
+.web-preview-close {
+  display: grid;
+  place-items: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 2px solid #645240;
+  border-radius: 50%;
+  background: #e5ecda;
+  color: #45372b;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.web-preview-image-wrap {
+  display: grid;
+  place-items: center;
+  padding: clamp(8px, 2vw, 18px);
+  border: 1px solid #c5baa9;
+  background: #ece6dc;
+}
+
+.web-preview-image-wrap img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: min(64dvh, 650px);
+  height: auto;
+  object-fit: contain;
+}
+
+.web-preview-caption {
+  margin: 12px 0 0;
+  color: #7a523c;
+  font-family: "Caveat", cursive;
+  font-size: 1.35rem;
+  text-align: right;
+}
+
+@keyframes web-preview-appear {
+  from { opacity: 0; transform: translateY(14px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 600px) {
+  .web-preview-dialog { width: 97vw; padding: 7px; }
+  .web-preview-paper { padding: 14px; }
+  .web-preview-image-wrap img { max-height: 67dvh; }
+  .web-preview-hint { right: 6px; bottom: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .web-preview-dialog[open] { animation: none; }
+  .web-preview-hint { transition: none; }
+}
+
+@media (forced-colors: active) {
+  .web-preview-dialog,
+  .web-preview-close,
+  .web-preview-paper,
+  .web-preview-trigger { border: 2px solid CanvasText; }
+}

@@ -1,0 +1,48 @@
+/* Quiet final strip after the contact postcard, not a duplicate contact hero. */
+.footer.footer--postcard {
+  margin: 0;
+  padding: clamp(43px, 6vw, 80px) max(5%, calc((100% - 1210px)/2)) 25px;
+  background: linear-gradient(180deg, #f9f2e7, #faf6ee);
+  border-top: 2px dashed rgba(123,91,65,.2);
+}
+.footer--postcard .footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(160px, .6fr);
+  gap: 35px;
+  align-items: start;
+}
+.footer--postcard .footer-eyebrow {
+  font: 1.13rem "Indie Flower", cursive;
+  color: #526f5a;
+  letter-spacing: .04em;
+}
+.footer--postcard h2 {
+  margin: 8px 0 12px;
+  font: 700 clamp(2.8rem, 4vw, 4.6rem)/.95 "Caveat", cursive;
+  color: #4e392e;
+}
+.footer--postcard h2 em { font-weight: 700; color: #a74c32; }
+.footer--postcard .footer-text {
+  max-width: 38ch;
+  font: 1.12rem/1.5 "Handlee", cursive;
+  color: #685448;
+}
+.footer--postcard .footer-links { gap: 5px; }
+.footer--postcard .footer-links a {
+  min-height: 44px;
+  padding: 8px 0;
+  border-color: rgba(131,96,70,.2);
+  font: 1.1rem "Handlee", cursive;
+  color: #6c4d3b;
+}
+.footer--postcard .footer-bottom {
+  margin-top: 39px;
+  padding-top: 18px;
+  font: .94rem "Handlee", cursive;
+}
+.footer--postcard .footer-signature { font: 1.5rem "Caveat", cursive; color: #96553b; }
+.footer--postcard a:focus-visible { outline: 3px solid #245c50; outline-offset: 3px; }
+@media (max-width: 650px) {
+  .footer--postcard .footer-top { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .footer--postcard .footer-bottom { margin-top: 27px; }
+}

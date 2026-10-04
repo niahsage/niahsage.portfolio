@@ -1,0 +1,94 @@
+/* An interactive, responsive sketchbook between Marketing and About. */
+.sketchbook-showcase {
+  --sb-ink: #4e392f;
+  --sb-green: #42694e;
+  --sb-rust: #a84d36;
+  position: relative;
+  isolation: isolate;
+  padding: clamp(76px, 9vw, 136px) 0 clamp(80px, 9vw, 135px);
+  color: var(--sb-ink);
+  background: linear-gradient(180deg, #eee0d4 0%, #f6eee1 18%, #f7f0e5 78%, #e7ecdf 100%);
+}
+.sketchbook-showcase, .sketchbook-showcase * { box-sizing: border-box; }
+.sketchbook-container { width: min(1210px, 90%); margin: 0 auto; }
+.sketchbook-heading { display: flex; align-items: end; justify-content: space-between; gap: 38px; margin-bottom: clamp(35px, 5vw, 66px); }
+.sketchbook-eyebrow { margin: 0 0 6px; font-family: "Indie Flower", cursive; letter-spacing: .08em; font-size: clamp(.85rem, 1.1vw, 1rem); color: var(--sb-green); }
+.sketchbook-heading h2 { font: 700 clamp(4rem, 8vw, 7.5rem)/.88 "Caveat", cursive; margin: 0; }
+.sketchbook-heading h2 em { color: var(--sb-rust); font-weight: 500; }
+.sketchbook-heading > p { max-width: 350px; font: 1.12rem/1.65 "Handlee", cursive; margin: 0 0 7px; }
+.sketchbook-desk { position: relative; padding: 12px clamp(0px, 3vw, 34px) 25px; }
+.sketchbook-asterisk { position: absolute; left: -20px; top: 32px; font-size: 3.5rem; color: var(--sb-rust); transform: rotate(-15deg); }
+.sketchbook-book {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: clamp(430px, 43vw, 575px);
+  border-radius: 4px 15px 14px 4px;
+  box-shadow: 0 26px 50px rgba(65, 43, 28, .16), 0 4px 5px rgba(65, 43, 28, .1);
+  background: #fffaf0;
+  transform: rotate(-1deg);
+  perspective: 1300px;
+}
+.sketchbook-book::before { content: ""; position: absolute; inset: 10px -7px -9px 10px; border: 2px solid #dac8b8; background: #ead9c7; border-radius: 4px 16px 12px 4px; z-index: -1; transform: rotate(.7deg); pointer-events:none; }
+.sketchbook-left-page, .sketchbook-right-page { position: relative; min-width: 0; padding: clamp(20px, 2.5vw, 36px); }
+.sketchbook-left-page { display: grid; align-items: stretch; padding-right: clamp(16px, 2vw, 24px); border-right: 1px solid #dfd2c2; background: linear-gradient(110deg,#fffcf5 5%,#faf4e9 87%,#eee0d0); }
+.sketchbook-right-page { display:flex; flex-direction:column; background: linear-gradient(90deg,#efe1cf 0%,#fffaf1 5%,#fffaf1 100%); }
+.sketchbook-binding { position: absolute; z-index: 3; top: 0; bottom: 0; left: calc(50% - 5px); width: 11px; background: linear-gradient(90deg, transparent, rgba(84,59,44,.14), transparent); pointer-events: none; }
+.sketchbook-photo-window { display:flex; align-items:center; justify-content:center; min-height: 0; overflow:hidden; border: 11px solid #f8f5ee; box-shadow: 0 5px 17px #3e2c2522; background: #e6dfd3; transform: rotate(-1.2deg); perspective: 1300px; }
+.sketchbook-art-image { width: 100%; height: 100%; max-height: 505px; aspect-ratio: 4 / 4.6; display:block; object-fit:contain; background:#e6dfd3; backface-visibility:hidden; }
+.sketchbook-tape { position:absolute; z-index:2; left:44%; top:8px; width:88px; height:28px; background:#eddda8b8; transform:rotate(4deg); border:1px solid #d6c48e66; pointer-events:none; }
+.sketchbook-turn-corner { position: absolute; right: 17px; bottom: 17px; z-index: 4; width: 57px; height: 57px; display:flex; align-items:center; justify-content:center; border: 0; border-radius: 50% 0 4px 0; background: #e6d5b7; color: #523f33; cursor:pointer; font-size:1.7rem; box-shadow: -4px -4px 10px #55413122; transition: transform .24s ease, background .24s ease; }
+.sketchbook-turn-corner:hover { transform: translate(-4px,-4px) rotate(-5deg); background:#ecd9ae; }
+.sketchbook-page-top { display:flex; justify-content:space-between; gap:12px; font: .88rem "Indie Flower", cursive; letter-spacing:.06em; color:var(--sb-green); border-bottom:1px solid #d7c9b7; padding-bottom:14px; }
+.sketchbook-page-copy { flex:1; padding: clamp(20px, 3vw, 46px) clamp(1px, 2vw, 28px) 13px; }
+.sketchbook-medium { text-transform:uppercase; letter-spacing:.11em; font-size:.92rem; color:var(--sb-rust); margin:0 0 10px; }
+.sketchbook-page-copy h3 { margin:0 0 18px; font:700 clamp(3.3rem, 6vw, 6rem)/.87 "Caveat", cursive; color:var(--sb-ink); }
+.sketchbook-story { max-width: 420px; margin:0 0 26px; font:clamp(1.1rem, 1.55vw, 1.4rem)/1.55 "Handlee", cursive; }
+.sketchbook-underlined-note { font: 1.7rem "Caveat", cursive; color:var(--sb-rust); text-decoration:underline; text-decoration-style:wavy; text-decoration-thickness:1px; text-underline-offset:7px; }
+.sketchbook-before { display:flex; align-items:center; gap:14px; margin: 25px 0 0; }
+.sketchbook-before img { width:clamp(85px, 10vw, 128px); height:95px; object-fit:cover; padding:5px; background:white; box-shadow:0 3px 12px #392b2433; transform:rotate(5deg); }
+.sketchbook-before figcaption { font:1.2rem "Caveat", cursive; color:#67564a; }
+.sketchbook-controls { display:flex; align-items:center; justify-content:space-between; gap:8px; padding-top:15px; border-top:1px solid #d7c9b7; }
+.sketchbook-controls > span { color:var(--sb-green); font-size:1.7rem; }
+.sketchbook-controls button { border:0; background:none; padding:10px; color:var(--sb-green); font: 1.35rem "Indie Flower", cursive; cursor:pointer; border-radius:5px; }
+.sketchbook-controls button:hover { background: #e6ecdbaa; }
+.sketchbook-showcase button:focus-visible, .sketchbook-showcase a:focus-visible { outline:3px solid #225846; outline-offset:3px; }
+.sketchbook-side-note { position:absolute; right:-19px; bottom:-32px; font: 1.7rem/1 "Caveat", cursive; color:var(--sb-rust); transform:rotate(-7deg); pointer-events:none; }
+.sketchbook-bottom { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:45px clamp(0px, 3vw, 34px) 0; }
+.sketchbook-bottom p { margin:0; font:1.7rem "Caveat", cursive; }
+.sketchbook-bottom p em { color:var(--sb-rust); }
+.sketchbook-all-link { display:inline-flex; gap:10px; align-items:center; padding:13px 19px; text-decoration:none; background:#dce8d8; border:1px solid #8f9f87; border-radius:4px; color:#334d39; font:1.14rem "Handlee", cursive; box-shadow:3px 4px 0 #9aac9966; transition:transform .2s ease; }
+.sketchbook-all-link:hover { transform:translateY(-3px) rotate(-1deg); }
+@media (max-width: 800px) {
+  .sketchbook-heading { display:block; }
+  .sketchbook-heading > p { margin-top:20px; max-width:540px; }
+  .sketchbook-book { transform:none; min-height:0; }
+  .sketchbook-left-page,.sketchbook-right-page { padding:20px; }
+  .sketchbook-page-copy { padding:24px 3px 18px; }
+  .sketchbook-page-copy h3 { font-size:clamp(3.4rem, 8vw, 5.1rem); }
+  .sketchbook-story { font-size:1.1rem; }
+  .sketchbook-side-note { display:none; }
+}
+@media (max-width: 610px) {
+  .sketchbook-showcase { padding:75px 0 85px; }
+  .sketchbook-container { width:min(92%, 440px); }
+  .sketchbook-book { grid-template-columns:minmax(0,1fr); border-radius:4px; }
+  .sketchbook-binding { display:none; }
+  .sketchbook-left-page { border-right:0; border-bottom:1px solid #dfd2c2; padding:18px; }
+  .sketchbook-photo-window { max-height:380px; }
+  .sketchbook-art-image { aspect-ratio:1 / 1; max-height:355px; }
+  .sketchbook-right-page { padding:20px 22px; min-height:300px; }
+  .sketchbook-page-copy { padding:24px 3px 20px; }
+  .sketchbook-story { max-width:100%; }
+  .sketchbook-heading h2 { font-size:clamp(3.7rem,14vw,5rem); }
+  .sketchbook-bottom { display:flex; flex-direction:column; align-items:start; padding:35px 0 0; }
+  .sketchbook-asterisk { left:-10px; top:-14px; font-size:2.8rem; }
+  .sketchbook-desk { padding:12px 0; }
+}
+@media (prefers-reduced-motion:reduce) {
+ .sketchbook-showcase *, .sketchbook-showcase *::before, .sketchbook-showcase *::after { transition-duration:0.01ms !important; animation-duration:0.01ms !important; }
+}
+@media (forced-colors:active) {
+ .sketchbook-book,.sketchbook-all-link { border:1px solid CanvasText; }
+ .sketchbook-turn-corner { border:1px solid ButtonText; }
+}

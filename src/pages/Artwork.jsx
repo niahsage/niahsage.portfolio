@@ -1,5 +1,9 @@
-import ProjectCard from "../components/ProjectCard";
+import { useState } from "react";
+import PortfolioLightbox from "../components/PortfolioLightbox";
+import InnerPageFooter from "../components/InnerPageFooter";
+import "../styles/inner-pages-upgrade.css";
 import "../styles/artwork.css";
+import "../styles/inner-frames-refined.css";
 import { motion } from "framer-motion";
 import twoCatsImg from "../assets/images/two-cats.jpg";
 import blackTabbyImg from "../assets/images/black-tabby.jpg";
@@ -11,8 +15,16 @@ import birdhouseImg from "../assets/assets/project9.png";
 import stickerImg from "../assets/assets/project10.png";
 import skeletonImg from "../assets/assets/project2.jpg";
 import faceImg from "../assets/assets/project3.jpg";
+import botanicalSketchImg from "../assets/artwork/botanical-figure-study.jpg";
+import paintedDogImg from "../assets/artwork/painted-dog-portrait.jpg";
+import paintedCatImg from "../assets/artwork/orange-cat-portrait.jpg";
+import paintedTableImg from "../assets/artwork/botanical-table-painted.jpg";
+import tableBeforeImg from "../assets/artwork/botanical-table-before.jpg";
+
 
 function Artwork() {
+  const [filter, setFilter] = useState("all");
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const artworks = [
     {
       image: twoCatsImg,
@@ -41,6 +53,36 @@ function Artwork() {
       description:
         "Acrylic painting of my cat Buddy, included as part of my ongoing pet portrait work.",
       tools: "Acrylic painting, pet portrait",
+    },
+    {
+      image: paintedDogImg,
+      title: "Dog in Blue",
+      description: "A painted dog portrait combining expressive color, foliage, and an everyday moment.",
+      tools: "Painting, pet portrait, color",
+    },
+    {
+      image: paintedCatImg,
+      title: "Cat at Rest",
+      description: "A warm orange-cat painting with layered brushwork and botanical details.",
+      tools: "Painting, animal portrait, texture",
+    },
+    {
+      image: botanicalSketchImg,
+      title: "Botanical Figure Study",
+      description: "A loose figure drawing with winding organic lines and decorative plant forms.",
+      tools: "Figure drawing, sketching, botanical illustration",
+    },
+    {
+      image: paintedTableImg,
+      title: "Botanical Table Refresh",
+      description: "A furniture painting project with detailed grape leaves, delicate vines, and layered color.",
+      tools: "Furniture painting, botanical design, hand painting",
+    },
+    {
+      image: tableBeforeImg,
+      title: "Botanical Table: Earlier Stage",
+      description: "A look at the same table during an earlier stage of its decorative painting process.",
+      tools: "Process documentation, furniture painting",
     },
     {
       image: stickerImg,
@@ -86,15 +128,21 @@ function Artwork() {
     },
   ];
 
+  const works = artworks.map((art, index) => ({
+    ...art,
+    category: index < 6 ? "paintings" : [6, 10, 11].includes(index) ? "studies" : "objects",
+  }));
+  const shown = works.filter((art) => filter === "all" || art.category === filter);
 return (
   <motion.main
-    className="artwork-page"
+    className="artwork-page niah-dossier"
+    id="main-content"
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 0.7 }}
   >
     <section className="art-hero">
-      <p className="eyebrow">Art & Illustration</p>
+      <p className="niah-dossier__index">ART JOURNAL 03 / DRAWN, PAINTED & MADE</p>
       <h1>
         Artwork shaped by
         <br />
@@ -108,8 +156,13 @@ return (
       </p>
     </section>
 
-    <section className="art-gallery">
-      {artworks.map((art, index) => (
+    <div className="niah-dossier__controls" role="group" aria-label="Filter artwork">
+      {[["all","Everything"],["paintings","Paintings"],["studies","Drawings & studies"],["objects","Objects & experiments"]].map(([value,label]) =>
+        <button type="button" key={value} aria-pressed={filter === value}
+          onClick={() => {setFilter(value);setSelectedIndex(null);}}>{label}</button>)}
+    </div>
+    <section className={`art-gallery${filter !== "all" ? " is-filtered" : ""}`} aria-label="Artwork collection">
+      {shown.map((art, index) => (
         <article
           className={`art-piece art-piece-${index + 1}`}
           key={art.title}
@@ -118,9 +171,11 @@ return (
             {String(index + 1).padStart(2, "0")}
           </div>
 
-          <div className="art-image-wrap">
-            <img src={art.image} alt={art.title} />
-          </div>
+          <button type="button" className="art-image-wrap niah-art-open"
+            aria-label={`View ${art.title} full size`} onClick={() => setSelectedIndex(index)}>
+            <img src={art.image} alt={art.title} loading="lazy" />
+            <span aria-hidden="true" className="niah-art-open__hint">take a closer look ↗</span>
+          </button>
 
           <div className="art-copy">
             <p className="art-type">{art.tools.split(",")[0]}</p>
@@ -132,15 +187,14 @@ return (
       ))}
     </section>
 
+    <PortfolioLightbox items={shown} index={selectedIndex} onChange={setSelectedIndex}
+      onClose={() => setSelectedIndex(null)} label="Artwork print viewer" />
     <section className="art-cta">
       <p className="eyebrow">Creative Work</p>
-      <h2>
-        Paint, pixels,
-        <br />
-        and personal details.
-      </h2>
+    
       <a href="#/contact">Start a Project →</a>
     </section>
+    <InnerPageFooter current="/artwork" />
   </motion.main>
 );
 }

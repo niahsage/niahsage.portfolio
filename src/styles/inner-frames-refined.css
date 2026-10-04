@@ -1,0 +1,168 @@
+/* Scoped ONLY to the extended Web & UI/UX and Artwork pages.
+   The approved homepage, sketchbook, and project lightboxes stay untouched. */
+
+/* WEB: screenshots live in a paper-mounted browser frame, not rounded blobs. */
+.work-page .work-project .project-image,
+.work-page .work-project:nth-child(3) .project-image,
+.work-page .work-project:nth-child(4) .project-image,
+.work-page .work-project:nth-child(5) .project-image,
+.work-page .work-showcase.is-filtered .work-project .project-image,
+.work-page .work-showcase.is-filtered .work-project.reverse .project-image {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 47px 13px 53px;
+  overflow: visible;
+  border: 7px solid #e8dbc5;
+  border-radius: 13px;
+  background: #e5ebe3;
+  box-shadow: 7px 9px 0 #c8bda8, 13px 19px 29px rgba(65, 49, 36, .17);
+  transform: rotate(-1deg);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.work-page .work-project.reverse .project-image {
+  transform: rotate(1deg);
+}
+/* Browser toolbar, complete with three hand-painted dots. */
+.work-page .work-project .project-image::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0 0 auto;
+  height: 35px;
+  border-radius: 5px 5px 0 0;
+  background:
+    radial-gradient(circle at 23px 17px, #b46b54 0 5px, transparent 5.4px),
+    radial-gradient(circle at 41px 17px, #d3a660 0 5px, transparent 5.4px),
+    radial-gradient(circle at 59px 17px, #73987f 0 5px, transparent 5.4px),
+    linear-gradient(#f9f1df, #f2e5cf);
+  border-bottom: 1px solid #c4b39e;
+  pointer-events: none;
+}
+/* Remove the awkward single strip of tape at the top of a browser. */
+.work-page .work-project .project-image::after { display: none; }
+.work-page .work-project .project-image img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: clamp(250px, 32vw, 480px);
+  min-height: 0;
+  margin: 0;
+  padding: 9px;
+  object-fit: contain;
+  background: #fffaf1;
+  border: 1px solid #c8c5b7;
+  border-radius: 3px;
+}
+.work-page .niah-project-preview__label {
+  right: 12px;
+  bottom: 11px;
+  transform: rotate(-2deg);
+  box-shadow: none;
+  background: transparent;
+  border: 0;
+}
+.work-page .work-project .project-image:is(:hover, :focus-visible) {
+  transform: translateY(-7px) rotate(0deg);
+  box-shadow: 9px 12px 0 #c8bda8, 16px 25px 36px rgba(65, 49, 36, .2);
+}
+.work-page .work-project .project-image:focus-visible,
+.artwork-page .art-piece .art-image-wrap:focus-visible {
+  outline: 3px solid #276d59;
+  outline-offset: 5px;
+}
+
+/* ARTWORK: real painting mats with understated physical frames. Never crop art. */
+.artwork-page .art-piece .art-image-wrap,
+.artwork-page .art-piece-1 .art-image-wrap,
+.artwork-page .art-piece-2 .art-image-wrap,
+.artwork-page .art-piece-4 .art-image-wrap,
+.artwork-page .art-piece-6 .art-image-wrap,
+.artwork-page .art-piece-10 .art-image-wrap,
+.artwork-page .art-gallery.is-filtered .art-piece .art-image-wrap {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(12px, 2vw, 20px) clamp(12px, 2vw, 20px) 53px;
+  overflow: visible;
+  border: clamp(7px, 1vw, 12px) solid #ad8b69;
+  border-radius: 2px;
+  background: #f4ebda;
+  box-shadow: inset 0 0 0 2px #fff9eb, 6px 8px 0 #ddceb9, 12px 21px 35px rgba(62, 48, 34, .19);
+  transform: rotate(-.8deg);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.artwork-page .art-piece:nth-child(3n) .art-image-wrap {
+  border-color: #7a9079;
+  background: #ebefe5;
+  transform: rotate(.8deg);
+}
+.artwork-page .art-piece:nth-child(4n) .art-image-wrap {
+  border-color: #bd9c7f;
+  background: #f5eadd;
+}
+.artwork-page .art-piece .art-image-wrap::after { display: none; }
+.artwork-page .art-piece .art-image-wrap img,
+.artwork-page .art-gallery.is-filtered .art-piece .art-image-wrap img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: clamp(260px, 34vw, 550px);
+  max-height: none;
+  padding: clamp(5px, 1vw, 10px);
+  margin: 0;
+  object-fit: contain;
+  object-position: center;
+  border: 1px solid #e4d6bf;
+  background: #fffdf8;
+  transform: none;
+}
+.artwork-page .art-piece .art-image-wrap:is(:hover, :focus-visible) {
+  transform: translateY(-7px) rotate(0deg);
+  box-shadow: inset 0 0 0 2px #fff9eb, 8px 12px 0 #ddceb9, 16px 27px 45px rgba(62, 48, 34, .22);
+}
+.artwork-page .art-piece .art-image-wrap:hover img { transform: none; }
+.artwork-page .art-piece .niah-art-open__hint {
+  right: 8px;
+  bottom: 8px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: rotate(-2deg);
+}
+@media (max-width: 700px) {
+  .work-page .work-project .project-image,
+  .work-page .work-project:nth-child(3) .project-image,
+  .work-page .work-project:nth-child(4) .project-image,
+  .work-page .work-project:nth-child(5) .project-image,
+  .work-page .work-showcase.is-filtered .work-project .project-image {
+    transform: none;
+    border-width: 5px;
+    padding: 39px 9px 45px;
+  }
+  .work-page .work-project .project-image img { height: clamp(220px, 63vw, 390px); }
+  .artwork-page .art-piece .art-image-wrap,
+  .artwork-page .art-gallery.is-filtered .art-piece .art-image-wrap {
+    transform: none;
+    padding: 12px 12px 50px;
+  }
+  .artwork-page .art-piece .art-image-wrap img { height: clamp(220px, 85vw, 500px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-page .work-project .project-image,
+  .artwork-page .art-piece .art-image-wrap { transition: none; }
+  .work-page .work-project .project-image:is(:hover, :focus-visible),
+  .artwork-page .art-piece .art-image-wrap:is(:hover, :focus-visible) { transform: none; }
+}
+@media (forced-colors: active) {
+  .work-page .work-project .project-image,
+  .artwork-page .art-piece .art-image-wrap { border: 2px solid CanvasText; }
+}

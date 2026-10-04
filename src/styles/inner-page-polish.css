@@ -1,0 +1,44 @@
+/* Interior page identity only. Never styles the interactive-desk homepage. */
+.niah-inner-tail { position:relative; isolation:isolate; width:min(1120px,calc(100% - 36px)); margin:clamp(75px,10vw,130px) auto 60px; padding:clamp(22px,4vw,45px); background:repeating-linear-gradient(0deg,transparent 0 33px,rgba(93,129,112,.095) 34px,transparent 35px),#fffaf0; border:1px solid #d9c6ad; box-shadow:11px 14px 0 rgba(98,73,49,.10),0 15px 35px rgba(68,47,34,.09); transform:rotate(-.5deg); color:#573b31; }
+.niah-inner-tail__tape {position:absolute; width:95px; height:24px; background:rgba(225,197,150,.67); left:50%; top:-13px; transform:translateX(-50%) rotate(2deg);pointer-events:none;}
+.niah-inner-tail__heading {position:relative;padding-right:50px;}
+.niah-inner-tail__heading p {font:700 .89rem/1.4 'Handlee',sans-serif;letter-spacing:.11em;color:#476a51;}
+.niah-inner-tail__heading h2 {margin:4px 0 20px; font:700 clamp(2.9rem,5vw,4.7rem)/1 'Caveat',cursive;}
+.niah-inner-tail__heading h2 em {font-style:normal;color:#a64d35;}
+.niah-inner-tail__heading > span {position:absolute;right:0;top:0;font:2.6rem 'Caveat',cursive;color:#b4543b;}
+.niah-inner-tail__links {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;}
+.niah-inner-tail__links a {display:flex;min-width:0;min-height:88px;gap:5px;align-items:flex-start;flex-direction:column;justify-content:center;padding:14px 12px;background:#e5ecd9;border:1px solid #b8c6aa;box-shadow:2px 3px 0 rgba(83,66,48,.13);transform:rotate(-1deg);transition:transform .2s,box-shadow .2s;font:1.35rem/1.15 'Handlee',sans-serif;}
+.niah-inner-tail__links a:nth-child(2) {background:#f5dfd4;transform:rotate(1.5deg);border-color:#dfbfae;}
+.niah-inner-tail__links a:nth-child(3) {background:#f4e6b8;transform:rotate(-1.2deg);border-color:#d6c99d;}
+.niah-inner-tail__links a:nth-child(4) {background:#e9e3ed;transform:rotate(1deg);border-color:#cec0cc;}
+.niah-inner-tail__links a small {font:700 .75rem 'Handlee',sans-serif;color:#4b715c;}
+.niah-inner-tail__links a > span:last-child {align-self:flex-end;color:#a45137;}
+.niah-inner-tail__links a:hover {transform:rotate(0) translateY(-6px);box-shadow:4px 9px 0 rgba(83,66,48,.12);}
+.niah-inner-tail__desk {display:inline-block;margin-top:26px;padding-bottom:4px;border-bottom:2px solid #af5c42;font:700 1.45rem 'Caveat',cursive;}
+.niah-inner-tail a:focus-visible,.niah-dossier button:focus-visible,.niah-dossier a:focus-visible,.niah-art-viewer button:focus-visible {outline:3px solid #28654a;outline-offset:4px;}
+/* Common interior section overlines and paper tabs */
+.niah-dossier {color:#513d34;}
+.niah-dossier__index {display:inline-flex;align-items:center;gap:8px;font:700 .87rem/1.4 'Handlee',sans-serif;letter-spacing:.08em;color:#3c644d;text-transform:uppercase;}
+.niah-dossier__index::before {content:'✳';font-size:1.25rem;color:#b0573c;}
+.niah-dossier__controls {display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;max-width:1160px;margin:0 auto clamp(45px,6vw,88px);padding:0 12px;}
+.niah-dossier__controls button {cursor:pointer;min-height:45px;background:#fbf3e3;border:1px solid #af9b80;color:#543e33;box-shadow:3px 4px 0 rgba(95,65,42,.10);padding:10px 19px;font:700 1.2rem/1.2 'Handlee',sans-serif;transform:rotate(-1deg);transition:transform .2s,background .2s;}
+.niah-dossier__controls button:nth-child(even){transform:rotate(1deg);}
+.niah-dossier__controls button:hover {transform:translateY(-3px);}
+.niah-dossier__controls button[aria-pressed="true"] {background:#dce8d5;border-color:#46664e;box-shadow:2px 3px 0 #94ad91;}
+.niah-dossier__meta {display:block;color:#6c675a;font:1rem/1.5 'Handlee',sans-serif;margin:10px 0;}
+/* Native modal, keyboard-operable and focused by the browser. */
+.niah-art-viewer {max-width:min(900px,94vw);max-height:min(92dvh,980px);width:min(900px,94vw);margin:auto;padding:0;border:1px solid #ac957c;background:#fffbf2;color:#513a30;box-shadow:0 15px 60px rgba(24,18,15,.4);overflow:auto;}
+.niah-art-viewer::backdrop {background:rgba(39,33,26,.77);backdrop-filter:blur(4px);}
+.niah-art-viewer__inside {padding:clamp(17px,3vw,35px);}
+.niah-art-viewer__top {display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:12px;font:700 .86rem 'Handlee',sans-serif;color:#53725d;letter-spacing:.08em;}
+.niah-art-viewer__close {background:#f6e0d3;border:1px solid #ac806d;padding:9px 14px;min-width:45px;min-height:44px;cursor:pointer;font:700 1.1rem 'Handlee',sans-serif;}
+.niah-art-viewer__inside > img {display:block;width:100%;max-height:64dvh;object-fit:contain;object-position:center;background:#f6f0e7;}
+.niah-art-viewer__caption {margin:18px 0 0;}
+.niah-art-viewer__caption h2 {font:700 clamp(2.4rem,5vw,3.8rem)/1 'Caveat',cursive;}
+.niah-art-viewer__caption p {font:1.15rem/1.45 'Handlee',sans-serif;margin:8px 0;}
+.niah-art-viewer__pager {display:flex;justify-content:space-between;gap:14px;margin-top:16px;}
+.niah-art-viewer__pager button {background:#e3eadc;border:1px solid #aabc9d;cursor:pointer;min-height:44px;padding:8px 17px;font:700 1.08rem 'Handlee',sans-serif;}
+@media(max-width:680px){.niah-inner-tail__links{grid-template-columns:repeat(2,minmax(0,1fr));}.niah-inner-tail{transform:none;}.niah-dossier__controls{justify-content:flex-start;}.niah-art-viewer__inside>img{max-height:57dvh;}}
+@media(max-width:350px){.niah-inner-tail__links{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){.niah-inner-tail__links a,.niah-dossier__controls button{transition:none!important;transform:none!important;}.niah-inner-tail__links a:hover{transform:none;}}
+@media(forced-colors:active){.niah-inner-tail,.niah-inner-tail__links a,.niah-dossier__controls button,.niah-art-viewer{border:2px solid CanvasText;}}

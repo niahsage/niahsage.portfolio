@@ -1,0 +1,60 @@
+/* Self-contained VGlobalTech Mailchimp case study. */
+.niah-email-case{width:min(100%,1100px);margin:clamp(65px,9vw,140px) auto clamp(70px,9vw,135px);color:#493b33;font-family:"Handlee",cursive}
+.niah-email-case *{box-sizing:border-box}
+.niah-email-case__intro{max-width:710px;margin:0 0 clamp(24px,4vw,48px)}
+.niah-email-case__eyebrow{font-size:clamp(.8rem,1.5vw,1rem);letter-spacing:.16em;color:#416c56;text-transform:uppercase;margin:0 0 12px}
+.niah-email-case__intro h3{font-family:"Caveat",cursive;font-weight:700;font-size:clamp(2.7rem,6vw,5.6rem);line-height:1.02;margin:0 0 16px}
+.niah-email-case__intro h3 em{font-weight:400;color:#aa6045}
+.niah-email-case__intro>p:not(.niah-email-case__eyebrow){font-size:clamp(1.04rem,1.7vw,1.33rem);line-height:1.6;margin:0 0 18px}
+.niah-email-case__chips{display:flex;gap:8px;flex-wrap:wrap}
+.niah-email-case__chips span{font-size:.97rem;border:1px solid #b99e8a;border-radius:3px;padding:6px 11px;background:#fff7e9}
+.niah-email-case__workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 460px) minmax(210px, 260px);
+  gap: 20px;
+  align-items: start;
+  justify-content: center;
+}
+.niah-email-case__window{min-width:0;position:relative;background:#fffaf0;border:1px solid #d7c7ae;border-radius:13px;box-shadow:11px 14px 0 rgba(94,77,65,.1);overflow:hidden}
+.niah-email-case__windowbar{background:#e0e6d7;border-bottom:1px solid #b9c9b5;padding:13px 16px;display:flex;align-items:center;gap:13px;font-size:.86rem;letter-spacing:.035em;color:#425c4b}
+.niah-email-case__windowbar>span:nth-child(2){flex:1;min-width:0;overflow-wrap:anywhere}
+.niah-email-case__dots{display:flex;gap:5px}
+.niah-email-case__dots i{width:9px;height:9px;border:1px solid #a67c64;border-radius:50%;background:#f4d6c5}
+.niah-email-case__dots i:nth-child(2){background:#f8edc5}.niah-email-case__dots i:nth-child(3){background:#c6d8b8}
+.niah-email-case__windowmark{color:#ad644a;font-size:1.2rem}
+.niah-email-case__inbox{min-height:205px;padding:24px clamp(16px,3vw,28px) 55px;position:relative}
+.niah-email-case__instruction{font-size:clamp(1.3rem,2.6vw,1.95rem);font-family:"Caveat",cursive;color:#a35b43;margin:0 0 23px}
+.niah-email-case__message{font:inherit;color:inherit;width:100%;min-height:88px;display:grid;grid-template-columns:10px minmax(80px,.32fr) minmax(0,1fr) 22px;align-items:center;gap:12px;text-align:left;padding:15px;cursor:pointer;border:1px solid #d1c1af;background:#fffef9;border-radius:5px;box-shadow:3px 5px 0 rgba(75,55,42,.07);transition:transform .24s ease,box-shadow .24s ease}
+.niah-email-case__message:hover{transform:translateY(-4px);box-shadow:6px 10px 0 rgba(75,55,42,.1)}
+.niah-email-case__message:focus-visible,.niah-email-case__toolbar button:focus-visible{outline:3px solid #315b4d;outline-offset:3px}
+.niah-email-case__unread{background:#b7684b;width:8px;height:8px;border-radius:50%}
+.niah-email-case__sender{font-weight:bold;color:#47694f;overflow-wrap:anywhere}
+.niah-email-case__subject{font-weight:700;line-height:1.3;overflow-wrap:anywhere}
+.niah-email-case__subject small{display:block;color:#746259;font-weight:400;margin-top:7px;line-height:1.25;font-size:.91rem}
+.niah-email-case__openarrow{font-size:1.4rem;color:#ad644a}
+.niah-email-case__side-note{position:absolute;right:22px;bottom:15px;font-family:"Caveat",cursive;color:#a45d42;font-size:1.65rem;transform:rotate(-5deg)}
+.niah-email-case__opened{padding:clamp(12px,2vw,24px);animation:niah-email-reveal .35s ease both}
+@keyframes niah-email-reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.niah-email-case__toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:15px}
+.niah-email-case__toolbar button{font:inherit;font-size:.98rem;cursor:pointer;padding:8px 10px;border:1px solid #b8bba8;background:#faf7ed;border-radius:5px;color:#3f5144}
+.niah-email-case__canvas{padding:2px 2px;background:repeating-linear-gradient(0deg,#f1ede5,#f1ede5 19px,#dedbd3 20px);display:flex;justify-content:center;max-height:510px;overflow:auto;overscroll-behavior:contain;transition:padding .22s ease}
+.niah-email-case__email{display:block;background:white;width:100%;max-width:400px;min-width:0;margin-inline:auto;box-shadow:0 6px 24px rgba(39,36,33,.13);font-family:Arial,Helvetica,sans-serif;color:#233c44;overflow:hidden;align-self:flex-start}
+.niah-email-case__hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  background: white;
+}
+.niah-email-case__full-link{display:inline-block;margin-top:12px;color:#416f56;text-underline-offset:4px;font-size:1rem}
+.niah-email-case__full-link:focus-visible{outline:3px solid #315b4d;outline-offset:3px}
+.niah-email-case__notes{background:#f3e7c9;box-shadow:5px 8px 0 rgba(83,64,47,.11);padding:28px clamp(18px,2.5vw,26px) 28px;position:relative;transform:rotate(2deg);border:1px solid #e2d2a8;font-size:1.07rem;line-height:1.5}
+.niah-email-case__tape{position:absolute;top:-12px;left:36%;height:22px;width:75px;background:rgba(255,252,235,.7);transform:rotate(-7deg)}
+.niah-email-case__notes-title{font-family:"Caveat",cursive;font-size:2rem;font-weight:700;color:#a45f47;margin:0 0 22px}
+.niah-email-case__notes p{margin:0 0 19px}.niah-email-case__notes strong{color:#426a52}
+.niah-email-case__notes small{font-size:.88rem;line-height:1.45;color:#715f51;display:block;border-top:1px dashed #b6aa8b;padding-top:14px}
+@media(max-width:860px){.niah-email-case__workspace{grid-template-columns:1fr}.niah-email-case__notes{max-width:530px;transform:rotate(-1deg)}}
+@media(max-width:520px){.niah-email-case__message{grid-template-columns:8px 1fr 22px;gap:9px}.niah-email-case__sender{grid-column:2}.niah-email-case__subject{grid-column:2}.niah-email-case__openarrow{grid-column:3;grid-row:1/span 2}.niah-email-case__unread{grid-row:1/span 2}.niah-email-case__side-note{font-size:1.35rem}.niah-email-case__canvas{padding:14px 6px}.niah-email-case__opened{padding:10px}}
+@media(prefers-reduced-motion:reduce){.niah-email-case *, .niah-email-case *:before,.niah-email-case *:after{transition:none!important;animation:none!important}}
+@media(forced-colors:active){.niah-email-case__message,.niah-email-case__window,.niah-email-case__email,.niah-email-case__notes{border:2px solid CanvasText}}

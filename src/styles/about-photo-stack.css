@@ -1,0 +1,17 @@
+/* About page: a tactile photo pile, without changing the rest of the About layout. */
+.niah-about-photo-stack{position:relative;width:min(100%,610px);margin:auto;min-width:0}
+.niah-about-photo-stack__pile{position:relative;height:660px;isolation:isolate}
+.niah-about-photo-stack__polaroid{position:absolute;top:49%;left:50%;width:min(74%,410px);height:83%;padding:14px 14px 61px;background:#fffbf1;border:1px solid #e7d6c1;box-shadow:0 17px 33px #482d223f;transition:transform .55s cubic-bezier(.2,.7,.21,1),box-shadow .35s;transform-origin:center}
+.niah-about-photo-stack__polaroid.depth-0{transform:translate(-50%,-50%) rotate(-3deg);box-shadow:1px 21px 38px #482d2252}
+.niah-about-photo-stack__polaroid.depth-1{transform:translate(calc(-50% + 32px),calc(-50% + 16px)) rotate(7deg)}
+.niah-about-photo-stack__polaroid.depth-2{transform:translate(calc(-50% - 30px),calc(-50% + 31px)) rotate(-10deg)}
+.niah-about-photo-stack__polaroid.is-going-back{animation:niah-about-photo-to-back .7s cubic-bezier(.24,.71,.16,1) both;pointer-events:none}
+@keyframes niah-about-photo-to-back{0%{transform:translate(-50%,-50%) rotate(-3deg)}49%{transform:translate(calc(-50% + 53%),calc(-50% - 9%)) rotate(14deg)}83%{transform:translate(calc(-50% + 40%),calc(-50% + 12%)) rotate(9deg)}100%{transform:translate(calc(-50% + 14px),calc(-50% + 27px)) rotate(5deg)}}
+.niah-about-photo-stack__polaroid img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 40%;pointer-events:none;user-select:none}
+.niah-about-photo-stack__caption{position:absolute;bottom:9px;left:0;right:0;text-align:center;font:clamp(1.5rem,2.5vw,2.2rem) "Caveat",cursive;color:#946044}
+.niah-about-photo-stack__click{position:absolute;inset:0;width:100%;height:100%;display:block;border:0;background:transparent;cursor:pointer;touch-action:manipulation}
+.niah-about-photo-stack__click:focus-visible{outline:3px solid #295f53;outline-offset:5px}
+.niah-about-photo-stack__hint{text-align:left;font:1.45rem "Caveat",cursive;color:#a45a42;margin:0;transform:rotate(-2deg)}
+@media(max-width:950px){.niah-about-photo-stack__pile{height:550px}}
+@media(max-width:600px){.niah-about-photo-stack__pile{height:435px}.niah-about-photo-stack__polaroid{width:72%;height:83%;padding:9px 9px 42px}.niah-about-photo-stack__hint{font-size:1.16rem}}
+@media(prefers-reduced-motion:reduce){.niah-about-photo-stack__polaroid{transition:none!important;animation:none!important}}

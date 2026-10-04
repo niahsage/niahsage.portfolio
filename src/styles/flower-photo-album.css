@@ -1,0 +1,77 @@
+/* Physically peel flowers from paper and stick them to a rotating photo stack. */
+.niah-flower-album{position:relative;isolation:isolate;padding:clamp(76px,9vw,120px) 20px;background:#f9f0e5;color:#4b382f}
+.niah-flower-album::before{content:"";position:absolute;inset:-13px 0 auto;height:24px;background:#f9f0e5;clip-path:polygon(0 47%,9% 28%,21% 66%,35% 28%,50% 58%,67% 19%,81% 49%,100% 31%,100% 100%,0 100%)}
+.niah-flower-album__inner{max-width:1120px;margin:0 auto}
+.niah-flower-album__intro{max-width:750px;margin:0 auto 35px;text-align:center}
+.niah-flower-album__eyebrow{font:1rem "Handlee",cursive;letter-spacing:.12em;color:#506c53}
+.niah-flower-album__intro h2{font:700 clamp(3.4rem,6vw,6rem)/1 "Caveat",cursive;color:#583f35;margin:12px 0}
+.niah-flower-album__intro em{color:#b65d42;font-style:normal}
+.niah-flower-album__intro>p:last-child{font:clamp(1.07rem,1.55vw,1.3rem)/1.5 "Handlee",cursive}
+.niah-flower-album__desk{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:clamp(22px,5vw,80px);align-items:center}
+.niah-flower-album__stack-area{min-width:0;text-align:center}
+.niah-flower-album__photo-stack{width:min(100%,510px);height:clamp(440px,46vw,640px);position:relative;margin:auto;isolation:isolate}
+.niah-flower-album__sheet{position:absolute;left:50%;top:48%;width:min(80%,425px);height:84%;padding:14px 14px 57px;background:#fffcf5;border:1px solid #e0d1bd;box-shadow:0 14px 24px #46352832;transform-origin:center center;transition:transform .45s cubic-bezier(.24,.72,.16,1),box-shadow .3s}
+.niah-flower-album__sheet.depth-0{transform:translate(-50%,-50%) rotate(-2deg);box-shadow:2px 16px 32px #4c342b3b}
+.niah-flower-album__sheet.depth-1{transform:translate(calc(-50% + 20px),calc(-50% + 20px)) rotate(5deg)}
+.niah-flower-album__sheet.depth-2{transform:translate(calc(-50% - 19px),calc(-50% + 31px)) rotate(-8deg)}
+.niah-flower-album__sheet.is-going-back{animation:flower-photo-to-back .62s cubic-bezier(.22,.64,.23,1) both;pointer-events:none}
+@keyframes flower-photo-to-back{0%{transform:translate(-50%,-50%) rotate(-2deg)}48%{transform:translate(calc(-50% + 52%),calc(-50% - 12%)) rotate(13deg)}78%{transform:translate(calc(-50% + 45%),calc(-50% + 9%)) rotate(8deg)}100%{transform:translate(calc(-50% + 12px),calc(-50% + 26px)) rotate(5deg)}}
+.niah-flower-album__print{height:100%;width:100%;overflow:hidden;position:relative;background:#e7d7c5}
+.niah-flower-album__print > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: #fffdf8;
+
+  pointer-events: none;
+  user-select: none;
+}
+.niah-flower-album__next-photo{position:absolute;inset:0;display:block;width:100%;height:100%;z-index:1;cursor:pointer;background:transparent;border:0;padding:0;touch-action:manipulation}
+.niah-flower-album__sheet.depth-0:hover{box-shadow:4px 22px 40px #4c342b49}
+.niah-flower-album__caption{position:absolute;bottom:8px;left:12px;right:12px;font:clamp(1.55rem,2.2vw,2.1rem) "Caveat",cursive;text-align:center;color:#925f48}
+.niah-flower-album__flip-note{font:1.25rem "Caveat",cursive;margin:0;color:#9b5c46;transform:rotate(-2deg)}
+.niah-flower-album__placed{position:absolute;z-index:3;display:block;min-width:44px;min-height:44px;padding:0;border:0;background:none;cursor:grab;touch-action:none;user-select:none;transform:translate(-50%,-50%) rotate(var(--angle));filter:drop-shadow(3px 7px 3px #22170f55);animation:flower-stick .33s cubic-bezier(.18,1.25,.25,1) both;transition:filter .2s}
+.niah-flower-album__placed:active{cursor:grabbing;filter:drop-shadow(7px 14px 8px #281b1899)}
+.niah-flower-album__placed img{display:block;width:100%;height:auto;pointer-events:none;user-select:none}
+@keyframes flower-stick{0%{opacity:.6;scale:1.14}70%{opacity:1;scale:.93}100%{opacity:1;scale:1}}
+.niah-flower-album__tools{min-width:0;background:#fffaef;border:1px solid #e6d6c2;padding:clamp(18px,2.5vw,32px);box-shadow:8px 10px 0 #e8dfd2;transform:rotate(1deg)}
+.niah-flower-album__tools-title{font:2.1rem "Caveat",cursive;color:#537058;margin:0 0 15px}
+.niah-flower-album__tools-title span{color:#b96648}
+.niah-flower-album__picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.niah-flower-album__choice{display:grid;grid-template-rows:minmax(95px,1fr) auto;align-items:center;justify-items:center;gap:8px;position:relative;min-height:153px;min-width:0;padding:10px 8px;border:1px solid #ded4c3;background:#f4ebdb;color:#4a382d;cursor:grab;touch-action:none;transform:rotate(-2deg);transition:transform .2s,box-shadow .2s;box-shadow:3px 5px 0 #c9bda92b;user-select:none}
+.niah-flower-album__choice:nth-child(even){transform:rotate(2deg)}
+.niah-flower-album__choice:hover{transform:translateY(-4px) rotate(0deg);box-shadow:4px 9px 10px #5b3d262b}
+.niah-flower-album__choice.is-selected{border-color:#80987f;background:#f4efe2}
+.niah-flower-album__choice.is-peeling .niah-flower-album__backing img{opacity:.16;transform:rotate(-14deg) translate(-14px,-6px);filter:none}
+.niah-flower-album__backing{display:grid;place-items:center;height:100%;width:92%;position:relative;border:1px dashed #cdbca5;background:linear-gradient(125deg,#fffaf0,#eee2d2);box-shadow:inset 0 0 0 4px #fffcf55b}
+.niah-flower-album__backing::after{content:"";position:absolute;right:0;bottom:0;border:10px solid transparent;border-right-color:#e2d3bc;border-bottom-color:#e2d3bc;filter:drop-shadow(-1px -1px 2px #402e2922)}
+.niah-flower-album__backing img{max-width:92%;max-height:100px;width:auto;height:auto;object-fit:contain;pointer-events:none;filter:drop-shadow(2px 5px 2px #30231944);transition:opacity .15s,transform .2s;transform-origin:left bottom}
+.niah-flower-album__choice>span:last-child{font:1.05rem "Handlee",cursive;text-align:center}
+.niah-flower-album__floating{position:fixed;z-index:9999;width:clamp(105px,14vw,165px);pointer-events:none;transform:translate(-50%,-52%) rotate(-8deg) scale(1.07);filter:drop-shadow(10px 16px 8px #23140c66);transform-origin:center center;transition:transform .12s,opacity .17s}
+.niah-flower-album__floating img{width:100%;height:auto;display:block}
+.niah-flower-album__floating.lifting{transform:translate(-50%,-52%) rotate(-12deg) scale(1.15)}
+.niah-flower-album__floating.returning{transform:translate(-50%,-52%) rotate(10deg) scale(.65);opacity:0}
+.niah-flower-album__help{min-height:3em;margin:20px 0 10px;font:1.03rem/1.45 "Handlee",cursive;color:#634c3c}
+.niah-flower-album__keyboard-place,.niah-flower-album__actions button{font:1.03rem "Handlee",cursive;min-height:44px;background:#f7f0e7;border:1px solid #bda791;color:#503b30;border-radius:3px;padding:9px 12px;cursor:pointer}
+.niah-flower-album__keyboard-place:hover,.niah-flower-album__actions button:hover:not(:disabled){background:#e6eddc}
+.niah-flower-album__actions{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+.niah-flower-album__actions button:disabled{opacity:.44;cursor:not-allowed}
+.niah-flower-album__tiny{font:0.91rem/1.4 "Handlee",cursive;color:#736151}
+.niah-flower-album button:focus-visible{outline:3px solid #295f53;outline-offset:4px}
+@media(max-width:850px){.niah-flower-album__desk{grid-template-columns:1fr;gap:20px;max-width:560px;margin:auto}.niah-flower-album__tools{transform:none}.niah-flower-album__photo-stack{height:clamp(430px,110vw,620px)}}
+@media(max-width:460px){.niah-flower-album{padding-inline:13px}.niah-flower-album__photo-stack{height:470px}.niah-flower-album__sheet{width:79%;height:79%;padding:9px 9px 42px}.niah-flower-album__picker{gap:7px}.niah-flower-album__choice{min-height:130px;padding:6px}.niah-flower-album__backing img{max-height:77px}.niah-flower-album__choice>span:last-child{font-size:.94rem}.niah-flower-album__floating{width:125px}}
+@media(prefers-reduced-motion:reduce){.niah-flower-album *{animation:none!important;transition:none!important}.niah-flower-album__floating{transform:translate(-50%,-50%)} }
+/* Floral overlays from early versions are intentionally retired.
+   Visitors arrange real flowers directly on the photographs instead. */
+.niah-flower-album { overflow: clip; }
+
+/* Individual flower cutouts: more room without an oversized sticker tray. */
+@media (min-width: 851px) {
+  .niah-flower-album__picker { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+  .niah-flower-album__choice { min-height: 140px; padding: 7px 5px; }
+  .niah-flower-album__backing img { max-height: 94px; }
+}

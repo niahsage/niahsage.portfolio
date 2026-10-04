@@ -1,0 +1,79 @@
+/* TACTILE PROJECT PREVIEWS — additions only, no layout or desk changes.
+   Pointer tracking runs on desktop mice; clicks retain the screenshot dialog. */
+
+@media (hover: hover) and (pointer: fine) and (min-width: 821px) and (prefers-reduced-motion: no-preference) {
+  .web-showcase .tactile-browser {
+    transition: box-shadow 260ms ease;
+  }
+
+  .web-showcase .tactile-browser:is(:hover, :focus-within) {
+    box-shadow:
+      16px 21px 0 rgba(83, 110, 93, 0.14),
+      24px 35px 55px rgba(71, 46, 31, 0.24);
+  }
+
+  .web-showcase .tactile-browser .web-preview-trigger {
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  /* The real screenshot behaves like a lightly lifted print. */
+  .web-showcase .tactile-browser .web-preview-trigger img {
+    transition: transform 300ms cubic-bezier(.2,.75,.3,1), filter 300ms ease;
+    transform-origin: center center;
+    backface-visibility: hidden;
+  }
+
+  .web-showcase .tactile-browser .web-preview-trigger:is(:hover, :focus-visible) img {
+    transform: perspective(850px)
+      rotateX(var(--tactile-rotate-x, 0deg))
+      rotateY(var(--tactile-rotate-y, 0deg))
+      scale(1.018);
+    filter: saturate(1.04);
+  }
+
+  /* A very faint light moves with the mouse, like glossy photo paper. */
+  .web-showcase .tactile-browser .web-preview-trigger::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--tactile-x, 50%) var(--tactile-y, 50%),
+      rgba(255, 250, 226, .23), rgba(255, 250, 226, 0) 55%);
+    opacity: 0;
+    transition: opacity 220ms ease;
+  }
+
+  .web-showcase .tactile-browser .web-preview-trigger:is(:hover, :focus-visible)::before {
+    opacity: 1;
+  }
+
+  /* A tiny turning-paper corner offers a playful hint to inspect. */
+  .web-showcase .tactile-browser .web-preview-trigger::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    background: linear-gradient(35deg, #ddccb2 0%, #fff9ed 60%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    filter: drop-shadow(-2px 3px 2px rgba(62, 42, 31, .20));
+    transition: width 240ms ease, height 240ms ease;
+  }
+  .web-showcase .tactile-browser .web-preview-trigger:is(:hover, :focus-visible)::after {
+    width: clamp(22px, 3vw, 40px);
+    height: clamp(22px, 3vw, 40px);
+  }
+
+  .web-showcase .tactile-browser .web-preview-hint { z-index: 3; }
+}
+
+/* No mouse-follow movement at zoomed mobile widths, on touch, or reduced motion.
+   Focus outlines and native click-to-zoom behavior remain available. */
+@media (prefers-reduced-motion: reduce), (max-width: 820px), (hover: none) {
+  .web-showcase .tactile-browser .web-preview-trigger img { transform: none; }
+}
