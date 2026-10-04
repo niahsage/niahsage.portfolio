@@ -444,7 +444,7 @@ export default function MarketingShowcase() {
             <div className="mk-campaign-board">
               <div className="mk-campaign-board-top">
                 <span aria-hidden="true">✳</span>
-                CAMPAIGN NOTES
+               
               </div>
 
               <div className="mk-campaign-content">
