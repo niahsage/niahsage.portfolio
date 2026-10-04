@@ -299,9 +299,9 @@ export default function MarketingShowcase() {
             </p>
 
             <h2 id="mk-title">
-              Recent
+              Social media
               <br />
-              <em>campaign.</em>
+              <em>marketing</em>
             </h2>
           </div>
 

@@ -699,3 +699,75 @@
     min-width: 0;
   }
 }
+
+
+/* ==========================================
+   YOGA2ME — PORTRAIT FRAME FIX
+   Mobile only. Desktop stays unchanged.
+   ========================================== */
+
+@media (max-width: 760px) {
+
+  .mk-showcase .mk-yoga-visual {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-width: 0;
+    padding: 25px 12px 40px;
+  }
+
+  /* Green outer frame grows with the image */
+  .mk-showcase .mk-yoga .mk-tablet {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+
+    width: min(100%, 340px);
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+
+    flex: none;
+    margin: 0 auto;
+    padding: 13px;
+
+    border: 10px solid #657c69;
+    border-radius: 26px;
+    background: #b9c9b7;
+
+    transform: rotate(-2deg);
+  }
+
+  /* White interior follows the image height */
+  .mk-showcase .mk-yoga .mk-tablet-screen {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+
+    aspect-ratio: auto;
+    overflow: hidden;
+
+    border-radius: 12px;
+    background: #fffaf0;
+  }
+
+  /* Entire graphic visible without cropping */
+  .mk-showcase .mk-yoga .mk-tablet-screen img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+
+  .mk-showcase .mk-yoga-flower {
+    right: 0;
+    bottom: 8px;
+  }
+}
