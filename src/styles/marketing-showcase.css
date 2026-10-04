@@ -771,3 +771,96 @@
     bottom: 8px;
   }
 }
+/* ========================================
+   FINAL YOGA2ME FRAME CORRECTION
+   ======================================== */
+
+/* Let the entire green frame grow with
+   the actual vertical Instagram image. */
+
+.mk-showcase .mk-yoga .mk-tablet {
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+
+  width: min(100%, 440px);
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+
+  padding: 14px;
+  border: 10px solid #657c69;
+  border-radius: 28px;
+
+  background: #b9c9b7;
+}
+
+/* Remove the old horizontal proportions. */
+
+.mk-showcase .mk-yoga .mk-tablet-screen {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+
+  aspect-ratio: auto;
+  overflow: hidden;
+
+  background: #fffaf0;
+  border-radius: 12px;
+}
+
+/* Image determines the height of both frames. */
+
+.mk-showcase .mk-yoga .mk-tablet-screen img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  height: auto;
+  max-height: none;
+
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* Stack the image ABOVE its description
+   on phones and smaller tablets. */
+
+@media (max-width: 1100px) {
+  .mk-showcase .mk-feature.mk-yoga {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .mk-showcase .mk-yoga-visual {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    padding: 20px 12px 36px;
+  }
+
+  .mk-showcase .mk-yoga .mk-tablet {
+    flex: 0 1 340px;
+    width: min(100%, 340px);
+    margin: 0 auto;
+    padding: 12px;
+    border-width: 8px;
+    transform: rotate(-2deg);
+  }
+
+  .mk-showcase .mk-yoga-copy {
+    width: 100%;
+    min-width: 0;
+  }
+}
