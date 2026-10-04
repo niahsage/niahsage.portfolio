@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import "../styles/interactive-desk.css";
 import "../styles/desk-home-links.css";
 
-import deskImage from "../assets/images/niah-desk.png";
+import deskImage from "../assets/images/niah-desk.webp";
 import professionalPhoto from "../assets/images/about.jpg";
 import greecePhoto from "../assets/images/greece.jpg";
 import casualPhoto from "../assets/images/niah-casual.jpeg";
@@ -190,14 +190,7 @@ export default function InteractiveDesk() {
               </button>
             </h1>
             <p>
-              My creative practice has grown across art, design, digital media, and communication. I'm beyond grateful that I've been able to start building a career doing something I'm genuinely passionate about. It's something so many people dream of, and I'm excited to see where it takes me.
-
-Thank you so much for taking the time to explore my little corner of the internet and get to know my work. Every opportunity to share what I create means a lot to me.
-
-I hope we get the chance to connect and create something beautiful together.
-
- <h2>With love,  </h2>
- <h3>Niah ♡ </h3>
+              A creative practice built across art, design, digital media and communication.
             </p>
           </div>
 

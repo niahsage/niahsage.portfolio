@@ -636,56 +636,66 @@
 }
 
 
-/* YOGA2ME — MOBILE FRAME FIX */
-
+/* ========================================================
+   YOGA2ME PORTRAIT POST — MOBILE-ONLY FRAME REPAIR
+   Preserve the green frame and show the entire tall graphic.
+   Keep this AFTER the older 4:3 .mk-tablet-screen rule.
+   ======================================================== */
 @media (max-width: 760px) {
-  .mk-showcase .mk-yoga {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 30px;
+  .mk-showcase .mk-feature.mk-yoga {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
   }
 
-  .mk-yoga-visual {
-    width: 100%;
-    min-width: 0;
-    padding: 20px 12px 30px;
+  .mk-showcase .mk-yoga-visual {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 20px 8px 24px;
   }
 
-  .mk-yoga-visual .mk-tablet {
-    width: min(100%, 350px);
-    flex-shrink: 0;
+  .mk-showcase .mk-yoga .mk-tablet {
+    flex: 0 1 340px;
+    width: min(100%, 340px);
+    min-width: 0;
+    height: auto;
     margin: 0 auto;
     padding: 12px;
     border-width: 9px;
+    aspect-ratio: auto;
     transform: rotate(-2deg);
   }
 
-  .mk-yoga-visual .mk-tablet-screen {
+  .mk-showcase .mk-yoga .mk-tablet-screen {
+    display: block;
     width: 100%;
     height: auto;
     min-height: 0;
+    max-height: none;
     aspect-ratio: auto;
     overflow: hidden;
   }
 
-  .mk-yoga-visual .mk-real-image {
+  .mk-showcase .mk-yoga .mk-tablet-screen .mk-real-image {
     display: block;
     width: 100%;
     height: auto;
+    max-height: none;
     object-fit: contain;
+    object-position: center;
   }
 
-  .mk-yoga-copy {
+  .mk-showcase .mk-yoga .mk-yoga-flower {
+    right: 4%;
+    bottom: 6px;
+  }
+
+  .mk-showcase .mk-yoga-copy {
     width: 100%;
     min-width: 0;
-  }
-
-  .mk-yoga-flower {
-    right: 0;
-    bottom: 0;
-    font-size: 4rem;
   }
 }
