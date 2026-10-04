@@ -23,3 +23,94 @@
 .studio-home #contact {
   scroll-margin-top: 28px;
 }
+
+/* =============================================================
+   MOBILE REPAIR (Oct 2026)
+   Keep the photographed desk interactive on touch screens.
+   The original positioning of the hotspot buttons is unchanged.
+   ============================================================= */
+@media (max-width: 900px) {
+  /* interactive-desk.css deliberately hid the touch targets on mobile. */
+  .studio-home .niah-desk-section .niah-desk-hotspots {
+    display: block;
+  }
+
+  .studio-home .niah-desk-section button.niah-desk-hotspot {
+    min-width: 44px;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+}
+
+/* =============================================================
+   MOBILE YOGA2ME PORTRAIT FRAME
+   A vertical Instagram post must determine the frame's height.
+   Do not force the old 4:3 tablet aspect ratio on small screens.
+   ============================================================= */
+@media (max-width: 760px) {
+  .studio-home .mk-showcase .mk-feature.mk-yoga {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+  }
+
+  .studio-home .mk-showcase .mk-yoga-visual {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 12px 4px 34px;
+  }
+
+  .studio-home .mk-showcase .mk-yoga .mk-tablet {
+    box-sizing: border-box;
+    flex: 0 1 auto;
+    width: min(100%, 350px);
+    min-width: 0;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 12px;
+    border: 9px solid #657c69;
+    border-radius: 23px;
+    transform: rotate(-2deg);
+  }
+
+  .studio-home .mk-showcase .mk-yoga .mk-tablet-screen {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    max-height: none;
+    height: auto;
+    aspect-ratio: auto;
+    overflow: hidden;
+    border-radius: 9px;
+  }
+
+  .studio-home .mk-showcase .mk-yoga .mk-tablet-screen > .mk-real-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+
+  .studio-home .mk-showcase .mk-yoga-copy {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .studio-home .mk-showcase .mk-yoga .mk-tablet {
+    width: min(100%, 330px);
+    padding: 10px;
+    border-width: 8px;
+    transform: none;
+  }
+}
